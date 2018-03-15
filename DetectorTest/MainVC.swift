@@ -12,6 +12,12 @@ import CoreData
 class MainVC: UIViewController {
 
     
+    @IBOutlet weak var bttn1: UIButton!
+    @IBOutlet weak var bttn2: UIButton!
+    @IBOutlet weak var bttn3: UIButton!
+    @IBOutlet weak var bttn4: UIButton!
+    @IBOutlet weak var langBttn: UIButton!
+    
     // сюда будут возвращаться из других экранов
     @IBAction func unwindToViewController (segue: UIStoryboardSegue){
         
@@ -20,20 +26,14 @@ class MainVC: UIViewController {
     
 //    var fetchResultsController: NSFetchedResultsController<Sharedobject>!
     
-    
-    
-    
     // включаем видимость статусбара снова
     override var prefersStatusBarHidden: Bool { return false }
     
     
     
-
-    @IBOutlet weak var bttn1: UIButton!
-    @IBOutlet weak var bttn2: UIButton!
-    @IBOutlet weak var bttn3: UIButton!
-    @IBOutlet weak var bttn4: UIButton!
-    @IBOutlet weak var langBttn: UIButton!
+    
+    
+    
     
     
     let userDefaults = UserDefaults.standard
