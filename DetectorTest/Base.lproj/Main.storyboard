@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,7 +58,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="Смайлы">
+                                        <state key="normal" title="Шняжки">
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -257,12 +258,22 @@
                         <viewControllerLayoutGuide type="top" id="ziw-MX-CEy"/>
                         <viewControllerLayoutGuide type="bottom" id="p8l-t5-cyx"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vH9-VZ-FWh">
+                    <view key="view" contentMode="scaleToFill" id="vH9-VZ-FWh" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-mb-d1x">
+                                <rect key="frame" x="239" y="473" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="KF3-XA-D4N"/>
+                                    <constraint firstAttribute="width" constant="49" id="KfO-8C-gv3"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onSwitchMode:" destination="svb-Ag-BAj" eventType="valueChanged" id="VgT-Zo-LZb"/>
+                                </connections>
+                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-Oc-QGK">
-                                <rect key="frame" x="122" y="246" width="77" height="77"/>
+                                <rect key="frame" x="122" y="351" width="77" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="4Am-31-NWV"/>
                                     <constraint firstAttribute="height" constant="77" id="mpc-ZM-b0Q"/>
@@ -273,7 +284,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Свет ВКЛ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-OG-Ifb">
-                                <rect key="frame" x="55" y="200" width="210" height="24"/>
+                                <rect key="frame" x="55" y="305" width="210" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="4FJ-y4-yD4"/>
                                 </constraints>
@@ -281,17 +292,58 @@
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выключать свет через N секунд" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
+                                <rect key="frame" x="48" y="456" width="157" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="rAU-Nm-kRy"/>
+                                    <constraint firstAttribute="height" constant="65" id="zxK-I4-7JH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="caR-t6-mwJ">
+                                <rect key="frame" x="132" y="213" width="57" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="y7A-9I-zaX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.96357172727584839" blue="0.7431337833404541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="height" secondItem="vH9-VZ-FWh" secondAttribute="height" constant="-532" id="3RG-ro-lbF"/>
+                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="IuB-mb-d1x" secondAttribute="bottom" constant="64" id="3ZK-PF-c3V"/>
                             <constraint firstItem="ZEx-Oc-QGK" firstAttribute="top" secondItem="z3r-OG-Ifb" secondAttribute="bottom" constant="22" id="5bU-FI-3Dg"/>
-                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="centerY" secondItem="vH9-VZ-FWh" secondAttribute="centerY" constant="0.5" id="9Pn-78-9cy"/>
+                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="centerY" secondItem="vH9-VZ-FWh" secondAttribute="centerY" constant="105.5" id="9Pn-78-9cy"/>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="BwE-Ib-gzT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IuB-mb-d1x" secondAttribute="trailing" constant="16" id="DZ6-k4-oOo"/>
                             <constraint firstItem="z3r-OG-Ifb" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="Fcu-tQ-Kkt"/>
+                            <constraint firstItem="lNs-G8-HgS" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="32" id="Ftm-T7-jAP"/>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerXWithinMargins" id="IxS-H5-GF3"/>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="JDH-5W-ilt"/>
                             <constraint firstItem="ZEx-Oc-QGK" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="U2D-VK-uqX"/>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="Vqm-7o-FR2"/>
+                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="top" secondItem="caR-t6-mwJ" secondAttribute="bottom" constant="102" id="j0e-4b-sS9"/>
+                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="lNs-G8-HgS" secondAttribute="bottom" constant="47" id="nQB-Xf-10M"/>
+                            <constraint firstItem="caR-t6-mwJ" firstAttribute="height" secondItem="vH9-VZ-FWh" secondAttribute="height" constant="-532" id="zdg-Aj-Pxe"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="1" green="0.96470588239999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="lightStatus" destination="z3r-OG-Ifb" id="WUg-4W-Kx5"/>
+                        <outlet property="switcher" destination="IuB-mb-d1x" id="xFx-LV-ptC"/>
+                        <outlet property="switcherTF" destination="lNs-G8-HgS" id="7nz-4K-WyL"/>
+                        <outlet property="timerTF" destination="caR-t6-mwJ" id="s30-8S-1pW"/>
                         <outlet property="torchButton" destination="ZEx-Oc-QGK" id="aF5-qk-R2m"/>
                     </connections>
                 </viewController>
@@ -378,7 +430,7 @@
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN">
+                    <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -398,6 +450,14 @@
                             <constraint firstAttribute="leadingMargin" secondItem="eXu-U1-cNo" secondAttribute="leading" constant="-10" id="Rg9-3W-CJE"/>
                             <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="eXu-U1-cNo" secondAttribute="bottom" constant="20" id="h4F-N6-it4"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="1" green="0.19156239605499725" blue="0.23660627076163143" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="backBttn" destination="eXu-U1-cNo" id="aWE-JX-1M3"/>

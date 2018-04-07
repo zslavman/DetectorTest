@@ -44,7 +44,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         backBttn.setTitle(dict[4]![LANG], for: .normal)
         countTF.text = dict[6]![LANG] + " " + String(selected)
         
-        fetchData()
+        fetchData2()
         
         titleTF.title = dict[0]![LANG]
         
@@ -154,7 +154,7 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     
     
     
-    /// Получение данных
+    /// Получение данных (способ 1)
     func fetchData() -> Void {
         
         let fetch_Raquest: NSFetchRequest<Sharedobject> = Sharedobject.fetchRequest()
@@ -185,6 +185,37 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         }
     }
     
+    
+    
+    
+    
+    // Получение данных (способ 2)
+    func fetchData2() -> Void {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetch_Raquest: NSFetchRequest<Sharedobject> = Sharedobject.fetchRequest()
+        
+            do {
+              instances = try context.fetch(fetch_Raquest)
+                print("Данные из CoreData получены успешно")
+            }
+            catch let error as NSError{
+                print("Не удалось получить данные \(error), \(error.userInfo)")
+            }
+
+    }
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+ 
     
     /* ========================================================*/
     /* ============= ACCESSING OBJECT RESULTS =================*/

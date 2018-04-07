@@ -18,10 +18,7 @@ class MainVC: UIViewController {
 
     }
     
-//    var fetchResultsController: NSFetchedResultsController<Sharedobject>!
-    
-    
-    
+
     
     // включаем видимость статусбара снова
     override var prefersStatusBarHidden: Bool { return false }
@@ -42,18 +39,14 @@ class MainVC: UIViewController {
     var buttonsArr = [UIButton]() // массив всех кнопок
     let dict = Dictionary().dict
     
-//    var config: [Conf] = []
-   
-    
-    
+
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-//        fetchData()
-        
+ 
         // если первый запуск, то получим значение 0
         LANG = userDefaults.integer(forKey: "lang")
         

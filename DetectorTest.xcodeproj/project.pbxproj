@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE12EE2079527C00B6E537 /* GradientView.swift */; };
 		846F52AC202F8098000B681C /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F52AB202F8098000B681C /* FriendsVC.swift */; };
 		84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */; };
 		84BCD33D2025CBAE00BDD195 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCD33C2025CBAE00BDD195 /* MainVC.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56EE12EE2079527C00B6E537 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		846F52AB202F8098000B681C /* FriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		84BCD3372025CBAE00BDD195 /* DetectorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				84BCD33E2025CBAE00BDD195 /* Main.storyboard */,
 				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
 				84BCD3462025CBAE00BDD195 /* LaunchScreen.storyboard */,
+				56EE12EE2079527C00B6E537 /* GradientView.swift */,
 				84BCD3492025CBAE00BDD195 /* Info.plist */,
 			);
 			path = DetectorTest;
@@ -108,9 +111,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84BCD34C2025CBAE00BDD195 /* Build configuration list for PBXNativeTarget "DetectorTest" */;
 			buildPhases = (
-				84BCD3332025CBAE00BDD195 /* Sources */,
 				84BCD3342025CBAE00BDD195 /* Frameworks */,
 				84BCD3352025CBAE00BDD195 /* Resources */,
+				84BCD3332025CBAE00BDD195 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -176,6 +179,7 @@
 			files = (
 				84BCD33D2025CBAE00BDD195 /* MainVC.swift in Sources */,
 				84E7D1C7202E6C5A00D1B62F /* Storage.xcdatamodeld in Sources */,
+				56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */,
 				84BCD3502025FADA00BDD195 /* Dictionary.swift in Sources */,
 				84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */,
 				84BCD358202613B600BDD195 /* OtherVC.swift in Sources */,
