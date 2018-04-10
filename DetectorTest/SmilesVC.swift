@@ -12,14 +12,14 @@ import AVFoundation
 class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
-    @IBOutlet weak var lightStatus: UILabel!
     @IBOutlet weak var backBttn: UIButton!
     @IBOutlet weak var torchButton: UIButton!
+    @IBOutlet weak var lightStatus: UILabel!
     @IBOutlet weak var timerTF: UILabel!
-    @IBOutlet weak var switcherTF: UILabel!
     @IBOutlet weak var switcher: UISwitch!
-    
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var shine: UIImageView!
+    
     let pickerNumbers = [Int](1...60)
     
     var nowLighting:Bool = false
@@ -28,15 +28,58 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var delay:Int = 0
     var countDownTimer:Timer!
     
-    
-
-    
+    public let START:String = "start"
+    public let STOP:String = "stop"
     
 
     var LANG:Int = 0
     let dict = Dictionary().dict
     
     let userDefaults = UserDefaults.standard
+    
+    
+    
+    
+    /* =================================*/
+    /* ========== П И К Е Р ============*/
+    /* =================================*/
+    public var pickerState:Bool {
+        get { return false }
+        set {
+            if newValue{
+                picker.isUserInteractionEnabled = true
+                picker.alpha = 1
+            }
+            else{
+                picker.isUserInteractionEnabled = false
+                picker.alpha = 0.3
+            }
+        }
+    }
+    
+    /* =================================*/
+    /* ========== ВКЛ/ВЫКЛ таймер ======*/
+    /* =================================*/
+    private var _timerState:String = "stop"
+    public var timerState:String {
+        get {
+            return _timerState
+        }
+        set {
+            _timerState = newValue
+            if newValue == START{
+                countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+                UIApplication.shared.isIdleTimerDisabled = true
+            }
+            else if newValue == STOP{
+                countDownTimer.invalidate()
+                countDownTimer = nil
+                delay = _delay
+                timerTF.text = String(delay)
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
+        }
+    }
 
     
     
@@ -47,30 +90,26 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         
         delay = _delay
         title = dict[1]![LANG]
-        switcherTF.text = "Выключать свет через \(delay) c."
-        timerTF.text = ""
+        timerTF.text = String(delay)
         
         //        print("nowLighting = \(nowLighting)") // в первый раз будет false
         nowLighting = userDefaults.bool(forKey: "light")
         needShutDown = userDefaults.bool(forKey: "needShutDown")
         
         switcher.isOn = needShutDown
-        picker.isUserInteractionEnabled = needShutDown
+        pickerState = needShutDown
         
         picker.selectRow(delay - 1, inComponent: 0, animated: true)
-        if !needShutDown{
-            picker.isUserInteractionEnabled = false
-            picker.alpha = 0.5
-        }
 
-        setState(nowLighting)
-        
+        torchState = nowLighting // для установки вида кнопки, т.к. изначально это включенная кнопка
     }
     
 
     
     
-    //************** П И К Е Р *************************************
+    /* =======================================================*/
+    /* ========== Н А С Т Р О Й К И   П И К Е Р А ============*/
+    /* =======================================================*/
     // кол-во разрядов пикервью
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -84,26 +123,27 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         return pickerNumbers.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switcherTF.text = "Выключить свет через \(pickerNumbers[row]) с."
+        timerTF.text = String(pickerNumbers[row])
         delay = pickerNumbers[row]
         _delay = delay
     }
     
     
 
-
+    
+    
+    /* =======================================================*/
+    /* ========== В К Л Ю Ч Е Н И Е   Ф О Н А Р И К А ========*/
+    /* =======================================================*/
     @IBAction func onTorchClick(_ sender: Any) {
         
         nowLighting = !nowLighting
         
         if countDownTimer != nil {
-            countDownTimer.invalidate()
-            countDownTimer = nil
-            timerTF.text = ""
-            delay = _delay
+            timerState = STOP
         }
         
-        setState(nowLighting)
+        torchState = nowLighting
         
         if let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo){
             if (device.hasTorch){
@@ -122,115 +162,124 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     
-    
-    
-    
-    func timerFunc(){
+    // 1) Переключатель
+    // 2) Пикер
+    // 3) Таймер
 
+    
+    /* =======================================================*/
+    /* ======== Установка состояний кнопки и фонарика ========*/
+    /* =======================================================*/
+    public var torchState:Bool{
+        
+        get { return false }
+        set {
+            // ВКЛ
+            if (newValue){
+                torchButton.setImage(UIImage(named: "torchBttn_on"), for: .normal)
+                lightStatus.text = dict[13]![LANG]
+                
+                switcher.isEnabled = false
+                
+                if needShutDown {
+                    timerState = START
+                }
+                pickerState = false
+                shine.alpha = 1
+            }
+            // ВЫКЛ
+            else {
+                torchButton.setImage(UIImage(named: "torchBttn_off"), for: .normal)
+                lightStatus.text = dict[14]![LANG]
+                
+                switcher.isEnabled = true
+                
+                UIApplication.shared.isIdleTimerDisabled = false
+                pickerState = true
+                
+                if countDownTimer != nil{
+                    timerState = STOP
+                }
+                shine.alpha = 0.1
+            }
+            userDefaults.set(newValue, forKey: "light")
+            userDefaults.synchronize()
+        }
+    }
+        
+    
+    
+
+    
+    /* =============================*/
+    /* ======== С В И Т Ч Е Р ======*/
+    /* =============================*/
+    @IBAction func onSwitchMode(_ sender: UISwitch) {
+        needShutDown = !needShutDown
+        
+        userDefaults.set(needShutDown, forKey: "needShutDown")
+        userDefaults.synchronize()
+        
+        pickerState = needShutDown
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* =============================*/
+    /* ======== Т А Й М Е Р ========*/
+    /* =============================*/
+    func timerFunc(){
+        
         delay -= 1
         
         switch delay {
         case 0...9:
-            timerTF.text = "0" + String(delay)
+            timerTF.text = String(delay)
             if delay == 0 {
                 onTorchClick(self)
             }
         case -1:
-            countDownTimer.invalidate()
-            countDownTimer = nil
-            timerTF.text = ""
-            delay = _delay
+            timerState = STOP
         default:
             timerTF.text = String(delay)
         }
         print("Тик-так \(delay)")
-
-    }
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /// Установка состояний кнопки и фонарика
-    ///
-    /// - Parameter state: <#state description#>
-    func setState (_ state:Bool) -> Void{
-        
-        if (state){
-            torchButton.setImage(UIImage(named: "torchBttn_on"), for: .normal)
-            lightStatus.text = dict[13]![LANG]
-            switcher.isEnabled = false
-            if needShutDown {
-                countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
-                timerTF.text = (delay < 10) ? "0" + String(delay) : String(delay)
-                UIApplication.shared.isIdleTimerDisabled = true
-                
-                picker.isUserInteractionEnabled = false
-                picker.alpha = 0.5
-            }
-        }
-        else {
-            torchButton.setImage(UIImage(named: "torchBttn_off"), for: .normal)
-            lightStatus.text = dict[14]![LANG]
-            switcher.isEnabled = true
-            UIApplication.shared.isIdleTimerDisabled = false
-            
-            picker.isUserInteractionEnabled = true
-            picker.alpha = 1
-        }
-        userDefaults.set(state, forKey: "light")
-        userDefaults.synchronize()
-    }
-        
-    
-    
-    
-    // выполнение ф-ции через определенное время
-//    func setTimeOut(_ delay:Int, closure: @escaping() -> ()){ // @escaping - кложур не замкнут
-//        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
-//            closure()
-//            print("Выполняется кложур")
-//        }
-//    }
-
-    
-    
-    
-    @IBAction func onSwitchMode(_ sender: UISwitch) {
-        needShutDown = !needShutDown
-        userDefaults.set(needShutDown, forKey: "needShutDown")
-        userDefaults.synchronize()
-        
-        if needShutDown{
-            picker.isUserInteractionEnabled = true
-            picker.alpha = 1
-        }
-        else {
-            picker.isUserInteractionEnabled = false
-            picker.alpha = 0.5
-        }
     }
     
     
     
     
+    
+    /* =============================*/
+    /* ======== Д И С П О З ========*/
+    /* =============================*/
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         if nowLighting{
             onTorchClick(self)
         }
-        timerTF.text = ""
-        delay = _delay
-        UIApplication.shared.isIdleTimerDisabled = true
+
     }
     
     
+    
+    
+    
+    
+    // выполнение ф-ции через определенное время
+    //    func setTimeOut(_ delay:Int, closure: @escaping() -> ()){ // @escaping - кложур не замкнут
+    //        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
+    //            closure()
+    //            print("Выполняется кложур")
+    //        }
+    //    }
 
 
     

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -262,95 +261,123 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-mb-d1x">
-                                <rect key="frame" x="231" y="345" width="51" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="KF3-XA-D4N"/>
-                                    <constraint firstAttribute="width" constant="49" id="KfO-8C-gv3"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="onSwitchMode:" destination="svb-Ag-BAj" eventType="valueChanged" id="VgT-Zo-LZb"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-Oc-QGK">
-                                <rect key="frame" x="121" y="200" width="77" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="77" id="4Am-31-NWV"/>
-                                    <constraint firstAttribute="height" constant="77" id="mpc-ZM-b0Q"/>
-                                </constraints>
-                                <state key="normal" image="torchBttn_on"/>
-                                <connections>
-                                    <action selector="onTorchClick:" destination="svb-Ag-BAj" eventType="touchUpInside" id="T4K-gl-jTk"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выключать свет через N секунд" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
-                                <rect key="frame" x="40" y="328" width="157" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="157" id="rAU-Nm-kRy"/>
-                                    <constraint firstAttribute="height" constant="65" id="zxK-I4-7JH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="caR-t6-mwJ">
-                                <rect key="frame" x="132" y="105" width="57" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="y7A-9I-zaX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-1f-6vu">
-                                <rect key="frame" x="0.0" y="415" width="320" height="133"/>
+                                <rect key="frame" x="21" y="415" width="126" height="133"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="p4b-fJ-bmk"/>
-                                    <constraint firstAttribute="width" constant="320" id="pdS-6H-sZe"/>
+                                    <constraint firstAttribute="width" constant="126" id="pdS-6H-sZe"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="svb-Ag-BAj" id="VDi-9l-K9x"/>
                                     <outlet property="delegate" destination="svb-Ag-BAj" id="VQS-2k-CqA"/>
                                 </connections>
                             </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="78D-dR-lIk">
+                                <rect key="frame" x="177" y="428" width="127" height="105"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Свет ВКЛ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-OG-Ifb">
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="127" id="4FJ-y4-yD4"/>
+                                            <constraint firstAttribute="height" constant="24" id="lFD-hi-8Af"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-Oc-QGK">
+                                        <rect key="frame" x="25" y="28" width="77" height="77"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="77" id="4Am-31-NWV"/>
+                                            <constraint firstAttribute="height" constant="77" id="mpc-ZM-b0Q"/>
+                                        </constraints>
+                                        <state key="normal" image="torchBttn_on"/>
+                                        <connections>
+                                            <action selector="onTorchClick:" destination="svb-Ag-BAj" eventType="touchUpInside" id="T4K-gl-jTk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dlI-y5-a0h">
-                                <rect key="frame" x="21" y="318" width="283" height="2"/>
+                                <rect key="frame" x="21" y="338" width="283" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Свет ВКЛ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-OG-Ifb">
-                                <rect key="frame" x="55" y="168" width="210" height="24"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-Gt-pA8">
+                                <rect key="frame" x="21" y="359" width="273" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="148" id="3hU-z9-cEM"/>
+                                            <constraint firstAttribute="height" constant="48" id="No8-jC-0lz"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Выключать свет через:">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <font key="NSFont" size="20" name="AppleSDGothicNeo-SemiBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="4" lineHeightMultiple="0.5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="caR-t6-mwJ">
+                                        <rect key="frame" x="156" y="0.0" width="35" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="mbk-JI-dLi"/>
+                                            <constraint firstAttribute="width" constant="35" id="oAh-pc-Xbq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="с." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Lob-If-u91">
+                                        <rect key="frame" x="199" y="0.0" width="17" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="41" id="3hz-y1-BLt"/>
+                                            <constraint firstAttribute="width" constant="17" id="B90-GC-doj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="23"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IuB-mb-d1x">
+                                        <rect key="frame" x="224" y="0.0" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="9yd-ZL-KFO"/>
+                                            <constraint firstAttribute="width" constant="49" id="q2K-RC-k8Q"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="onSwitchMode:" destination="svb-Ag-BAj" eventType="valueChanged" id="VgT-Zo-LZb"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light" translatesAutoresizingMaskIntoConstraints="NO" id="I6W-fQ-Vbb">
+                                <rect key="frame" x="21" y="80" width="283" height="258"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="4FJ-y4-yD4"/>
+                                    <constraint firstAttribute="width" secondItem="I6W-fQ-Vbb" secondAttribute="height" multiplier="283:258" id="R7F-qL-xDj"/>
+                                    <constraint firstAttribute="width" constant="283" id="mKW-4d-eZS"/>
+                                    <constraint firstAttribute="height" constant="258" id="ptz-hk-hE9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="top" secondItem="ziw-MX-CEy" secondAttribute="bottom" constant="41" id="2JM-zV-FLD"/>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="height" secondItem="vH9-VZ-FWh" secondAttribute="height" constant="-532" id="3RG-ro-lbF"/>
-                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="IuB-mb-d1x" secondAttribute="bottom" constant="192" id="3ZK-PF-c3V"/>
-                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="top" secondItem="z3r-OG-Ifb" secondAttribute="bottom" constant="8" id="5bU-FI-3Dg"/>
-                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="Nuk-1f-6vu" secondAttribute="bottom" constant="20" id="7Sn-qY-ivr"/>
-                            <constraint firstItem="z3r-OG-Ifb" firstAttribute="centerX" secondItem="ZEx-Oc-QGK" secondAttribute="centerX" id="9Dl-i5-gCF"/>
-                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="centerY" secondItem="vH9-VZ-FWh" secondAttribute="centerY" constant="-45.5" id="9Pn-78-9cy"/>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" constant="0.5" id="BwE-Ib-gzT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IuB-mb-d1x" secondAttribute="trailing" constant="24" id="DZ6-k4-oOo"/>
-                            <constraint firstItem="lNs-G8-HgS" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="24" id="Ftm-T7-jAP"/>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerXWithinMargins" constant="0.5" id="IxS-H5-GF3"/>
-                            <constraint firstAttribute="trailing" secondItem="Nuk-1f-6vu" secondAttribute="trailing" id="VGC-PM-bBU"/>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" constant="0.5" id="Vqm-7o-FR2"/>
-                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="top" secondItem="ziw-MX-CEy" secondAttribute="bottom" constant="136" id="WmS-EY-Bms"/>
-                            <constraint firstItem="dlI-y5-a0h" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" constant="2.5" id="apY-Kq-i9R"/>
-                            <constraint firstItem="Nuk-1f-6vu" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leading" id="i2q-53-4od"/>
-                            <constraint firstItem="ZEx-Oc-QGK" firstAttribute="top" secondItem="caR-t6-mwJ" secondAttribute="bottom" constant="59" id="j0e-4b-sS9"/>
-                            <constraint firstItem="dlI-y5-a0h" firstAttribute="trailing" secondItem="vH9-VZ-FWh" secondAttribute="trailingMargin" id="jGC-V4-qaS"/>
-                            <constraint firstItem="z3r-OG-Ifb" firstAttribute="top" secondItem="ziw-MX-CEy" secondAttribute="bottom" constant="104" id="lOM-j6-aws"/>
-                            <constraint firstItem="z3r-OG-Ifb" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="39" id="mdp-tH-C1v"/>
-                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="lNs-G8-HgS" secondAttribute="bottom" constant="175" id="nQB-Xf-10M"/>
-                            <constraint firstItem="lNs-G8-HgS" firstAttribute="top" secondItem="dlI-y5-a0h" secondAttribute="bottom" constant="8" id="yGa-bW-AzJ"/>
-                            <constraint firstItem="caR-t6-mwJ" firstAttribute="height" secondItem="vH9-VZ-FWh" secondAttribute="height" constant="-532" id="zdg-Aj-Pxe"/>
+                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="4jo-Gt-pA8" secondAttribute="bottom" constant="161" id="2tc-dV-afb"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="5" id="65r-dB-CV4"/>
+                            <constraint firstItem="dlI-y5-a0h" firstAttribute="top" secondItem="I6W-fQ-Vbb" secondAttribute="bottom" id="CNu-C3-kMm"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="4jo-Gt-pA8" secondAttribute="leading" id="FKJ-8z-jeC"/>
+                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="78D-dR-lIk" secondAttribute="bottom" constant="35" id="H6w-E5-ekr"/>
+                            <constraint firstItem="78D-dR-lIk" firstAttribute="leading" secondItem="Nuk-1f-6vu" secondAttribute="trailing" constant="30" id="HN4-lN-G5g"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="trailing" secondItem="dlI-y5-a0h" secondAttribute="trailing" id="NAB-F4-tOp"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="5" id="bDN-Os-LFY"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="top" secondItem="ziw-MX-CEy" secondAttribute="bottom" constant="16" id="c5H-op-3J1"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leadingMargin" constant="5" id="m0j-G0-EKY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="78D-dR-lIk" secondAttribute="trailing" id="mTg-rs-pn7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4jo-Gt-pA8" secondAttribute="trailing" constant="10" id="pGT-MU-OJU"/>
+                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="Nuk-1f-6vu" secondAttribute="bottom" constant="20" id="tDg-dQ-FXU"/>
+                            <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="dlI-y5-a0h" secondAttribute="leading" id="u09-fc-9F7"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -364,8 +391,8 @@
                     <connections>
                         <outlet property="lightStatus" destination="z3r-OG-Ifb" id="WUg-4W-Kx5"/>
                         <outlet property="picker" destination="Nuk-1f-6vu" id="ZKp-GI-YTV"/>
+                        <outlet property="shine" destination="I6W-fQ-Vbb" id="cSJ-SC-uA0"/>
                         <outlet property="switcher" destination="IuB-mb-d1x" id="xFx-LV-ptC"/>
-                        <outlet property="switcherTF" destination="lNs-G8-HgS" id="7nz-4K-WyL"/>
                         <outlet property="timerTF" destination="caR-t6-mwJ" id="s30-8S-1pW"/>
                         <outlet property="torchButton" destination="ZEx-Oc-QGK" id="aF5-qk-R2m"/>
                     </connections>
@@ -512,6 +539,7 @@
     </scenes>
     <resources>
         <image name="close" width="50" height="50"/>
+        <image name="light" width="517" height="517"/>
         <image name="torchBttn_on" width="174" height="174"/>
     </resources>
 </document>
