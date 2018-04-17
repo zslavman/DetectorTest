@@ -25,7 +25,7 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var nowLighting:Bool = false
     var needShutDown:Bool = false
-    var _delay:Int = 5
+    var _delay:Int = 10
     var delay:Int = 0
     var countDownTimer:Timer!
     
@@ -112,6 +112,8 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     
     
+    let loopingMargin: Int = 40
+    
     /* =======================================================*/
     /* ========== Н А С Т Р О Й К И   П И К Е Р А ============*/
     /* =======================================================*/
@@ -119,18 +121,22 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    // показыает содержание массива в компоненте (если не указать, то вместо цифр будут знаки ?)
+    // показыает элементы массива в компоненте (если не указать, то вместо цифр будут знаки ?)
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(pickerNumbers[row])
+        return String(pickerNumbers[row % pickerNumbers.count])
     }
     // количество элементов из массива, которые необходимо отображать в пикере
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerNumbers.count
+        return loopingMargin * pickerNumbers.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        timerTF.text = String(pickerNumbers[row])
-        delay = pickerNumbers[row]
+        let currentIndex = row % pickerNumbers.count
+        picker.selectRow((loopingMargin / 2) * pickerNumbers.count + currentIndex, inComponent: 0, animated: false)
+
+        timerTF.text = String(pickerNumbers[currentIndex])
+        delay = pickerNumbers[currentIndex]
         _delay = delay
+        
     }
     
     
