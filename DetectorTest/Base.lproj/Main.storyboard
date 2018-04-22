@@ -26,11 +26,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="425-Lg-Ucn">
-                                <rect key="frame" x="91" y="153" width="138" height="262"/>
+                                <rect key="frame" x="91" y="169" width="138" height="262"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmM-v0-sTZ">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="43"/>
@@ -93,14 +93,14 @@
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ybs-E1-R1J" kind="presentation" identifier="otherSegue" modalTransitionStyle="crossDissolve" id="AQT-E8-ZHD"/>
+                                            <segue destination="Ybs-E1-R1J" kind="show" identifier="otherSegue" id="AQT-E8-ZHD"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=regular-widthClass=compact" spacing="30"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qa-Nb-j4a">
-                                <rect key="frame" x="33" y="493" width="99" height="33"/>
+                                <rect key="frame" x="33" y="525" width="99" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="TCV-hc-SXH"/>
                                     <constraint firstAttribute="width" constant="99" id="f06-8X-JUA"/>
@@ -126,6 +126,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Главное меню" id="712-Sd-1e9"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="600"/>
                     <connections>
                         <outlet property="bttn1" destination="JmM-v0-sTZ" id="H6B-pp-plh"/>
                         <outlet property="bttn2" destination="ZTJ-RD-MrV" id="lMD-tx-9Np"/>
@@ -258,11 +260,11 @@
                         <viewControllerLayoutGuide type="bottom" id="p8l-t5-cyx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vH9-VZ-FWh" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nuk-1f-6vu">
-                                <rect key="frame" x="21" y="415" width="126" height="133"/>
+                                <rect key="frame" x="21" y="447" width="126" height="133"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="p4b-fJ-bmk"/>
                                     <constraint firstAttribute="width" constant="126" id="pdS-6H-sZe"/>
@@ -273,7 +275,7 @@
                                 </connections>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="78D-dR-lIk">
-                                <rect key="frame" x="177" y="428" width="127" height="105"/>
+                                <rect key="frame" x="177" y="460" width="127" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Свет ВКЛ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-OG-Ifb">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="24"/>
@@ -299,7 +301,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-Gt-pA8">
-                                <rect key="frame" x="21" y="359" width="273" height="48"/>
+                                <rect key="frame" x="21" y="391" width="273" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
                                         <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
@@ -362,7 +364,7 @@
                                 </constraints>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jsx-Wn-cXm">
-                                <rect key="frame" x="87.5" y="255" width="150" height="2"/>
+                                <rect key="frame" x="88" y="255" width="150" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="pUQ-Fh-acB"/>
                                 </constraints>
@@ -487,11 +489,11 @@
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXu-U1-cNo">
-                                <rect key="frame" x="26" y="514" width="48" height="34"/>
+                                <rect key="frame" x="26" y="546" width="48" height="34"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <state key="normal" title="Назад">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -522,7 +524,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7Y-xn-GN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JaF-Ye-PEi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="753"/>
+            <point key="canvasLocation" x="1020" y="904"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6tF-ui-0uU">
