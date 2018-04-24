@@ -12,25 +12,38 @@ class OtherVC: UIViewController {
     
     
     @IBOutlet weak var backBttn: UIButton!
+    @IBOutlet weak var picture: ImageLoader!
+    @IBOutlet weak var nameTF: UILabel!
+    
     var LANG:Int = 0
     let dict = Dictionary().dict
     
-    public var jsonDict = [String: Any]()
-    
-    
+    public var jsonDict = [NSDictionary]()
+    public var num:Int = 11
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backBttn.setTitle(dict[4]![LANG], for: .normal)
-        getJSON()
+        
+        nameTF.text = ""
+        
+        if (jsonDict.count == 0) {
+            getJSON()
+        }
+        else{
+            loadPhotos()
+        }
 
     }
 
     
     
     
-    public func getJSON() -> Void{
+    public func getJSON(){
         
         let link = URL(string: "http://zslavman.esy.es/imgdb/index.json")
         
@@ -49,12 +62,14 @@ class OtherVC: UIViewController {
 //                        print(json)
 //                    }
                     if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSArray{
-                        print("Элементов в массиве =  \(jsonArray.count)")
-                        
-                        for eachElement in jsonArray{
-                            print((eachElement as! NSDictionary)["view"] as! String)
-                            print((eachElement as! NSDictionary)["description"] as! String)
-                        }
+//                        print("Элементов в массиве =  \(jsonArray.count)")
+//                        for eachElement in jsonArray{
+//                            print((eachElement as! NSDictionary)["view"]!)
+//                            print((eachElement as! NSDictionary)["description"] as! String)
+//                        }
+                        self.jsonDict = jsonArray as! [NSDictionary]
+                        self.loadPhotos()
+                        self.loadInfo()
                     }
                 }
                 catch {
@@ -62,27 +77,28 @@ class OtherVC: UIViewController {
                 }
             }
         }
-        //***********
+    }
+    
+    
+    public func loadInfo(){
+        nameTF.text = jsonDict[num].value(forKeyPath: "description") as! String?
+    }
+    
+    
+    public func loadPhotos(){
         
+        let photoName = jsonDict[num].value(forKeyPath: "view") as! String
+        let photoLink = "http://zslavman.esy.es/imgdb/" + photoName
         
-        
-//        let task = URLSession.shared.dataTask(with: link!) {
-//            (data, response, error) in
-//            
-//            if let data = data{
-//                do{
-//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]{
-//                        print(json)
-//                    }
-//                }
-//                catch{
-//                    print(error.localizedDescription)
-//                }
-//            }
-//        }
-//        task.resume()
+        picture.downloadImageFrom(urlString: photoLink, imageMode: .scaleAspectFit)
 
     }
+    
+    
+    
+    
+
+
 }
 
 

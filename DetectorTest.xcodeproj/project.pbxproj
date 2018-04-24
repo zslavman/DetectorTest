@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561ABFDF208FCF5200CAC544 /* ImageLoader.swift */; };
 		56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE12EE2079527C00B6E537 /* GradientView.swift */; };
 		846F52AC202F8098000B681C /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F52AB202F8098000B681C /* FriendsVC.swift */; };
 		84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		561ABFDF208FCF5200CAC544 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		56EE12EE2079527C00B6E537 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		846F52AB202F8098000B681C /* FriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		84BCD3372025CBAE00BDD195 /* DetectorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				84BCD33E2025CBAE00BDD195 /* Main.storyboard */,
 				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
 				84BCD3462025CBAE00BDD195 /* LaunchScreen.storyboard */,
+				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
 				56EE12EE2079527C00B6E537 /* GradientView.swift */,
 				84BCD3492025CBAE00BDD195 /* Info.plist */,
 			);
@@ -182,6 +185,7 @@
 				56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */,
 				84BCD3502025FADA00BDD195 /* Dictionary.swift in Sources */,
 				84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */,
+				561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */,
 				84BCD358202613B600BDD195 /* OtherVC.swift in Sources */,
 				84BCD3562026136900BDD195 /* NatureVC.swift in Sources */,
 				846F52AC202F8098000B681C /* FriendsVC.swift in Sources */,
