@@ -13,35 +13,69 @@ import UIKit
 
 class OtherVC: UICollectionViewController{
     
-    
-    @IBOutlet var colView: GradientCollectionView!
 
     
     public var LANG:Int!
     private let dict = Dictionary().dict
 
-    
+    public var jsonDict = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        colView.dataSource = self
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-
+        title = "ФотоАльбом"
+        
+        if (jsonDict.isEmpty) {
+            getJSON()
+        }
     }
+        
 
-    
-    
-    
+
     
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    
+    public func getJSON(){
+        
+        let link = URL(string: "http://zslavman.esy.es/imgdb/index.json")
+        
+        // создаем очередь
+        let queue = DispatchQueue.global(qos: .background)
+        
+        // добавляем процесс в очередь асинхронно
+        queue.async {
+            guard let jsonURL = link, let jsonData = try? Data(contentsOf: jsonURL) else { return } // если link существует (не битый), пытаемся получить данные картинки, иначе выходим
+            
+            // возвращаемся в основной поток (все обновления интерфейса должны происходить ТОЛЬКО! в основном потоке)
+            DispatchQueue.main.async {
+                do {
+                    // конвертируем в словарь, в котором ключи это стринги, а значения ключей - любой тип
+                    if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSArray{
+                        self.jsonDict = jsonArray as! [NSDictionary]
+                        self.collectionView?.reloadData()
+                    }
+                }
+                catch {
+                    print("Ошибка сериализации JSON")
+                }
+            }
+        }
+    }
+    
+    
+
+    
+    
 
     
     
@@ -57,22 +91,40 @@ class OtherVC: UICollectionViewController{
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
+//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 1
+//    }
 
-
+    // общее кол-во ячеек
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return jsonDict.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! OtherCell
     
-        // Configure the cell
-    
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        if jsonDict.count > 0{
+            cell.photoName = jsonDict[indexPath.row].value(forKeyPath: "view") as! String
+            cell.loadPhotos()
+        }
+            
         return cell
     }
+    
+    
+    // регулировка размеров ячейки в зависимости от размеров экрана
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
+        
+        let screenWidth = self.view.bounds.width - 5*2 - 5*2 // ...минус indent, минсу gap
+        let cellWidth = screenWidth / 3
+        let size = CGSize(width: cellWidth, height: cellWidth*0.8)
+        
+        return size
+    }
+    
+    
+    
 
     // MARK: UICollectionViewDelegate
 
@@ -106,29 +158,6 @@ class OtherVC: UICollectionViewController{
     */
 
 }
-
-
-
-
-
-
-
-//extension OtherVC: UICollectionViewDataSource, UICollectionViewDelegate{
-
-    
-    
-    
-    
-    
-    
-    
-    
-//}
-
-
-
-
-
 
 
 
