@@ -1,105 +1,146 @@
 //
-//  OtherVC.swift
+//  OtherDetailVC.swift
 //  DetectorTest
 //
-//  Created by Admin on 03.02.18.
+//  Created by Viacheslav on 01.05.18.
 //  Copyright © 2018 HomeMade. All rights reserved.
 //
 
 import UIKit
 
-class OtherVC: UIViewController {
+
+
+
+class OtherVC: UICollectionViewController{
     
     
-    @IBOutlet weak var backBttn: UIButton!
-    @IBOutlet weak var picture: ImageLoader!
-    @IBOutlet weak var nameTF: UILabel!
-    
-    var LANG:Int = 0
-    let dict = Dictionary().dict
-    
-    public var jsonDict = [NSDictionary]()
-    public var num:Int = 11
+    @IBOutlet var colView: GradientCollectionView!
 
     
+    public var LANG:Int!
+    private let dict = Dictionary().dict
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backBttn.setTitle(dict[4]![LANG], for: .normal)
+//        colView.dataSource = self
         
-        nameTF.text = ""
-        
-        if (jsonDict.count == 0) {
-            getJSON()
-        }
-        else{
-            loadPhotos()
-        }
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
 
     }
 
     
     
     
-    public func getJSON(){
-        
-        let link = URL(string: "http://zslavman.esy.es/imgdb/index.json")
-        
-        // создаем очередь
-        let queue = DispatchQueue.global(qos: .background)
-        
-        // добавляем процесс в очередь асинхронно
-        queue.async {
-            guard let jsonURL = link, let jsonData = try? Data(contentsOf: jsonURL) else { return } // если link существует (не битый), пытаемся получить данные картинки, иначе выходим
-
-            // возвращаемся в основной поток (все обновления интерфейса должны происходить ТОЛЬКО! в основном потоке)
-            DispatchQueue.main.async {
-                do {
-                    // конвертируем в словарь, в котором ключи это стринги, а значения ключей - любой тип
-//                    if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any]{
-//                        print(json)
-//                    }
-                    if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSArray{
-//                        print("Элементов в массиве =  \(jsonArray.count)")
-//                        for eachElement in jsonArray{
-//                            print((eachElement as! NSDictionary)["view"]!)
-//                            print((eachElement as! NSDictionary)["description"] as! String)
-//                        }
-                        self.jsonDict = jsonArray as! [NSDictionary]
-                        self.loadPhotos()
-                        self.loadInfo()
-                    }
-                }
-                catch {
-                    print("Ошибка сериализации JSON")
-                }
-            }
-        }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-    
-    public func loadInfo(){
-        nameTF.text = jsonDict[num].value(forKeyPath: "description") as! String?
-    }
-    
-    
-    public func loadPhotos(){
-        
-        let photoName = jsonDict[num].value(forKeyPath: "view") as! String
-        let photoLink = "http://zslavman.esy.es/imgdb/" + photoName
-        
-        picture.downloadImageFrom(urlString: photoLink, imageMode: .scaleAspectFit)
 
-    }
     
     
-    
-    
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+    // MARK: UICollectionViewDataSource
+
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+
+
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
+    
+        // Configure the cell
+    
+        return cell
+    }
+
+    // MARK: UICollectionViewDelegate
+
+    /*
+    // Uncomment this method to specify if the specified item should be highlighted during tracking
+    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    */
+
+    /*
+    // Uncomment this method to specify if the specified item should be selected
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    */
+
+    /*
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return false
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+    
+    }
+    */
 
 }
+
+
+
+
+
+
+
+//extension OtherVC: UICollectionViewDataSource, UICollectionViewDelegate{
+
+    
+    
+    
+    
+    
+    
+    
+    
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

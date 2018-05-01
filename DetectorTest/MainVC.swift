@@ -108,50 +108,9 @@ class MainVC: UIViewController {
         userDefaults.set(arg, forKey: "lang")
         userDefaults.synchronize()
         
-//      if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
-//
-//            config[0].lingua = Int16(LANG)
-//
-//            // сохраняем сам контекст
-//            do {
-//                try context.save()
-//                print("Успешно сохранено")
-//            }
-//            catch let error  as NSError{
-//                print("Не удалось сохранить данные \(error), \(error.userInfo)")
-//            }
-//      }
-        
     }
     
-    
-    /* =================================================*/
-    /* ============== ПОЛУЧЕНИЕ ДАННЫХ =================*/
-    /* =================================================*/
-//    func fetchData() -> Void {
-//        
-//        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
-//            
-//            do {
-//                config = try context.fetch(Conf.fetchRequest())
-//                // для первого запуска
-//                if config.count == 0{
-//                    let newConfig = Conf(context: context)
-//                    newConfig.lingua = Int16(LANG)
-//                    config.append(newConfig)
-//                }
-//                else{
-//                    LANG = Int(config[0].lingua)
-//                }
-//
-//                print("Данные получены успешно, res = \(config)")
-//            }
-//            catch let error as NSError{
-//                print("Не удалось получить данные \(error), \(error.userInfo)")
-//            }
-//        }
-//    }
-    
+
     
     
     //MARK: - задает стиль для кнопок

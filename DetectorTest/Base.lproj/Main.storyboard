@@ -93,7 +93,7 @@
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Ybs-E1-R1J" kind="show" identifier="otherSegue" id="AQT-E8-ZHD"/>
+                                            <segue destination="lcf-If-uhY" kind="show" identifier="otherSegue" id="hJu-eq-eER"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -187,6 +187,12 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Друзья" id="h5l-hc-lQV">
+                                        <barButtonItem key="leftBarButtonItem" title="Редакт." id="4Eo-O8-a9l">
+                                            <color key="tintColor" red="0.19607843459999999" green="0.34117648010000001" blue="0.1019607857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="onEditClick:" destination="JyH-gA-y5p" id="Yfi-uJ-pOE"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fZg-SI-xkl">
                                             <color key="tintColor" red="0.1697889417" green="0.35390749570000002" blue="0.081944055860000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -242,6 +248,7 @@
                     <connections>
                         <outlet property="backBttn" destination="arY-3w-e3E" id="NIl-fF-kYA"/>
                         <outlet property="countTF" destination="PCP-FE-yI6" id="m24-9S-cg4"/>
+                        <outlet property="editBttn" destination="4Eo-O8-a9l" id="uCP-pZ-zgz"/>
                         <outlet property="tableView" destination="G7F-pl-4YE" id="W6m-8b-EjT"/>
                         <outlet property="titleTF" destination="h5l-hc-lQV" id="jy6-Na-qTu"/>
                     </connections>
@@ -481,27 +488,72 @@
             <point key="canvasLocation" x="1933" y="451"/>
         </scene>
         <!--OtherVC-->
+        <scene sceneID="pah-1I-SWl">
+            <objects>
+                <collectionViewController id="lcf-If-uhY" customClass="OtherVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gkZ-xn-eHq" customClass="GradientCollectionView" customModule="DetectorTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QMl-7h-HgM">
+                            <size key="itemSize" width="131" height="97"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemCell" id="ztb-H5-BM7">
+                                <rect key="frame" x="0.0" y="0.0" width="131" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="131" height="97"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIy-pa-dHk">
+                                            <rect key="frame" x="4" y="4" width="123" height="89"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <segue destination="Ybs-E1-R1J" kind="show" id="vIf-Xh-g3V"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="1" green="0.3620856454713427" blue="0.10353207571037304" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="lcf-If-uhY" id="wSK-2d-evg"/>
+                            <outlet property="delegate" destination="lcf-If-uhY" id="0v0-W2-qCc"/>
+                        </connections>
+                    </collectionView>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="gkZ-xn-eHq" id="dhD-L4-lNr"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKs-Gp-W75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275.625" y="883.09859154929575"/>
+        </scene>
+        <!--Other DetailVC-->
         <scene sceneID="S7x-1F-2Vb">
             <objects>
-                <viewController id="Ybs-E1-R1J" customClass="OtherVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXu-U1-cNo">
-                                <rect key="frame" x="26" y="546" width="48" height="34"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <state key="normal" title="Назад">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="JaF-Ye-PEi" kind="unwind" unwindAction="unwindToViewControllerWithSegue:" id="2Hu-bj-vRz"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
                                 <rect key="frame" x="16" y="386" width="288" height="21"/>
                                 <constraints>
@@ -523,10 +575,8 @@
                         <constraints>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="9AN-9u-T5n"/>
                             <constraint firstItem="PW0-An-E0q" firstAttribute="top" secondItem="gDX-JQ-gtl" secondAttribute="bottom" constant="4" id="E8q-56-QJQ"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="eXu-U1-cNo" secondAttribute="leading" constant="-10" id="Rg9-3W-CJE"/>
                             <constraint firstItem="PW0-An-E0q" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="aXw-fP-Qhw"/>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="top" secondItem="PW0-An-E0q" secondAttribute="bottom" constant="8" id="c6G-OB-Zln"/>
-                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="eXu-U1-cNo" secondAttribute="bottom" constant="20" id="h4F-N6-it4"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -537,16 +587,15 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="backBttn" destination="eXu-U1-cNo" id="aWE-JX-1M3"/>
                         <outlet property="nameTF" destination="ECC-n0-B2k" id="Jc9-3g-BTb"/>
                         <outlet property="picture" destination="PW0-An-E0q" id="SVi-Iq-HHp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7Y-xn-GN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JaF-Ye-PEi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="903.16901408450701"/>
+            <point key="canvasLocation" x="1020" y="885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6tF-ui-0uU">
