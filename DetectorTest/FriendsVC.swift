@@ -97,13 +97,13 @@ class FriendsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         searchController.isActive = false;
         
         if tableView.isEditing {
-            tableView.setEditing(false, animated: true)
+            tableView.setEditing(false, animated: false)
         }
         
         // перенумеровываем строки в соотв. с тем как они сейчас расположены друг относительно друга (для сохранения порядка)
         for (index, value) in instances.enumerated() {
             value.order = Int16(index)
-            print("\(value.friendName!)")
+//            print("\(value.friendName!)")
         }
         saveData(createCell: false)
     }

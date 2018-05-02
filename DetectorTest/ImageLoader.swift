@@ -11,35 +11,81 @@ import UIKit
 
 class ImageLoader: UIImageView {
     
-    let imageCache = NSCache<NSString, AnyObject>()
+   
     var imageURLString: String?
+    var spiner:UIActivityIndicatorView!
+    
+    
+    private func addSpiner(toItem target:AnyObject) {
+        
+        spiner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spiner.translatesAutoresizingMaskIntoConstraints = false // не позволяем xcode управлять констрейнами и авторесайзом
+        spiner.hidesWhenStopped = true // прячем когда остановиться
+        spiner.startAnimating()
+        target.addSubview(spiner)
+        
+        // размещаем
+        NSLayoutConstraint(item: spiner, attribute: .centerX, relatedBy: .equal, toItem: target, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: spiner, attribute: .centerY, relatedBy: .equal, toItem: target, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+    }
+        
     
     
     
-    
-    func downloadImageFrom(urlString: String, imageMode: UIViewContentMode) {
+    public func downloadImageFrom(urlString: String, imageMode: UIViewContentMode) {
         guard let url = URL(string: urlString) else { return }
         downloadImageFrom(url: url, imageMode: imageMode)
     }
     
     
     
-    func downloadImageFrom(url: URL, imageMode: UIViewContentMode) {
+    
+    
+    
+    
+   public func downloadImageFrom(url: URL, imageMode: UIViewContentMode) {
         contentMode = imageMode
-        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) as? UIImage {
-            self.image = cachedImage
+
+        if OtherVC.imageCache.keys.contains(url.absoluteString as NSString){
+            image = UIImage(data: OtherVC.imageCache[url.absoluteString as NSString] as! Data)
         }
         else {
-            URLSession.shared.dataTask(with: url) {
-                data, response, error in
-                
-                guard let data = data, error == nil else { return }
+            addSpiner(toItem: self)
+            
+            // создаем очередь
+            let queue = DispatchQueue.global(qos: .background)
+            
+            // добавляем процесс в очередь асинхронно
+            queue.async {
+                guard let imgData = try? Data(contentsOf: url) else { return } // если link существует (не битый), пытаемся получить данные картинки, иначе выходим
+
                 DispatchQueue.main.async {
-                    let imageToCache = UIImage(data: data)
-                    self.imageCache.setObject(imageToCache!, forKey: url.absoluteString as NSString)
-                    self.image = imageToCache
+                    self.spiner.stopAnimating()
+                    self.image = UIImage(data: imgData)
+                    OtherVC.imageCache.updateValue(imgData as AnyObject, forKey: url.absoluteString as NSString)
+
                 }
-            }.resume()
+            }
         }
     }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

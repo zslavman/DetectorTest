@@ -11,7 +11,6 @@ import UIKit
 class OtherDetailVC: UIViewController {
     
     
-    @IBOutlet weak var backBttn: UIButton!
     @IBOutlet weak var picture: ImageLoader!
     @IBOutlet weak var nameTF: UILabel!
     

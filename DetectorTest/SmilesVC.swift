@@ -109,7 +109,10 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     }
     
-
+  
+    
+    
+    
     
     
     let loopingMargin: Int = 40
@@ -244,6 +247,8 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         
         delay -= 1
         
+        print(delay)
+        
         //прогресс бар
         let progress = Float(delay)/Float(_delay)
         progressBar.setProgress(Float(progress), animated: true)
@@ -272,8 +277,8 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             onTorchClick(self)
         }
         progressBar.progress = 1
-
     }
+
     
     
     

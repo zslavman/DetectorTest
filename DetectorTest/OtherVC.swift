@@ -13,7 +13,8 @@ import UIKit
 
 class OtherVC: UICollectionViewController{
     
-
+    
+    public static var imageCache = [NSString:AnyObject]()
     
     public var LANG:Int!
     private let dict = Dictionary().dict
