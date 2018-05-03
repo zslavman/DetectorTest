@@ -210,11 +210,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OnC-JV-OkE" id="aEA-TD-FjB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2aI-z2-lNb">
-                                                    <rect key="frame" x="25" y="0.0" width="280" height="43.5"/>
+                                                    <rect key="frame" x="25" y="0.0" width="280" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -522,7 +522,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="picture" destination="WIy-pa-dHk" id="sNZ-yr-7vi"/>
-                                    <segue destination="Ybs-E1-R1J" kind="show" id="vIf-Xh-g3V"/>
+                                    <segue destination="Ybs-E1-R1J" kind="show" identifier="toDetailViewSegue" id="vIf-Xh-g3V"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

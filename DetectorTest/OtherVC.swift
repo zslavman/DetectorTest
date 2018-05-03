@@ -15,11 +15,13 @@ class OtherVC: UICollectionViewController{
     
     
     public static var imageCache = [NSString:AnyObject]()
+    public static var jsonDict = [NSDictionary]()
     
     public var LANG:Int!
     private let dict = Dictionary().dict
+    
+    private var clickedCellNum:Int = 0
 
-    public var jsonDict = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class OtherVC: UICollectionViewController{
         // self.clearsSelectionOnViewWillAppear = false
         title = "ФотоАльбом"
         
-        if (jsonDict.isEmpty) {
+        if (OtherVC.jsonDict.isEmpty) {
             getJSON()
         }
     }
@@ -62,7 +64,7 @@ class OtherVC: UICollectionViewController{
                 do {
                     // конвертируем в словарь, в котором ключи это стринги, а значения ключей - любой тип
                     if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSArray{
-                        self.jsonDict = jsonArray as! [NSDictionary]
+                        OtherVC.jsonDict = jsonArray as! [NSDictionary]
                         self.collectionView?.reloadData()
                     }
                 }
@@ -98,15 +100,15 @@ class OtherVC: UICollectionViewController{
 
     // общее кол-во ячеек
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return jsonDict.count
+        return OtherVC.jsonDict.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath) as! OtherCell
     
         cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-        if jsonDict.count > 0{
-            cell.photoName = jsonDict[indexPath.row].value(forKeyPath: "view") as! String
+        if OtherVC.jsonDict.count > 0{
+            cell.photoName = OtherVC.jsonDict[indexPath.row].value(forKeyPath: "view") as! String
             cell.loadPhotos()
         }
             
@@ -136,12 +138,16 @@ class OtherVC: UICollectionViewController{
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
+    
+    
+    // клик по ячейке
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        
+        clickedCellNum = indexPath.row
+        
         return true
     }
-    */
+ 
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -157,6 +163,30 @@ class OtherVC: UICollectionViewController{
     
     }
     */
+    
+    
+//    toDetailViewSegue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let si = segue.identifier{
+            
+            switch si {
+            case "toDetailViewSegue":
+                let destinationVC = segue.destination as! OtherDetailVC
+                destinationVC.num = clickedCellNum
+            default:
+                assertionFailure("Did't recognize storyboard identifier")
+            }
+        }
+
+        
+        
+    }
+    
+    
+    
+    
+    
 
 }
 
