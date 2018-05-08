@@ -21,6 +21,9 @@ class OtherVC: UICollectionViewController{
     private let dict = Dictionary().dict
     
     private var clickedCellNum:Int = 0
+    
+    private var desiredWidth = 100.0 // 160 желаемый размер ячейки
+    private var cellMarginSize = 5.0
 
     
     override func viewDidLoad() {
@@ -35,15 +38,42 @@ class OtherVC: UICollectionViewController{
         }
     }
         
-
-
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    func setupGridView() {
+        let flow = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        flow.minimumInteritemSpacing = CGFloat(cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(cellMarginSize)
     }
     
+    
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        
+//        setupGridView()
+//        DispatchQueue.main.async {
+//            if (OtherVC.jsonDict.isEmpty) {
+//                self.getJSON()
+//            }
+//            else{
+//                self.collectionView?.reloadData()
+//            }
+//        }
+//    }
+    
+    
+    // событие поворота экрана
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+        }
+        else {
+            print("Portrait")
+        }
+        setupGridView()
+        collectionView?.reloadData()
+    }
     
     
     
@@ -65,6 +95,7 @@ class OtherVC: UICollectionViewController{
                     // конвертируем в словарь, в котором ключи это стринги, а значения ключей - любой тип
                     if let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? NSArray{
                         OtherVC.jsonDict = jsonArray as! [NSDictionary]
+                        self.setupGridView()
                         self.collectionView?.reloadData()
                     }
                 }
@@ -116,16 +147,28 @@ class OtherVC: UICollectionViewController{
     }
     
     
+    
+    
+    
     // регулировка размеров ячейки в зависимости от размеров экрана
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
-        
-        let screenWidth = self.view.bounds.width - 5*2 - 5*2 // ...минус indent, минсу gap
-        let cellWidth = screenWidth / 3
-        let size = CGSize(width: cellWidth, height: cellWidth*0.8)
-        
-        return size
+
+        let width = calculateDimensions()
+        return CGSize(width: width, height: width)
     }
     
+    
+    
+    
+    private func calculateDimensions() -> CGFloat{
+        let estimatedWidth = CGFloat(desiredWidth)
+        let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
+        
+        let margin = CGFloat(cellMarginSize * 2)
+        let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        
+        return width
+    }
     
     
 
