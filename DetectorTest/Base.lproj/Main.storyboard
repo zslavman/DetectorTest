@@ -551,7 +551,7 @@
         <!--Other DetailVC-->
         <scene sceneID="S7x-1F-2Vb">
             <objects>
-                <viewController id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
@@ -560,29 +560,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
-                                <rect key="frame" x="16" y="386" width="288" height="21"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PW0-An-E0q" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="b5E-Xf-B4Z"/>
+                                    <constraint firstItem="PW0-An-E0q" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="top" id="2KQ-1T-hc5"/>
+                                    <constraint firstAttribute="width" secondItem="d1W-ZV-bvN" secondAttribute="height" multiplier="40:71" id="60S-XR-iWP"/>
+                                    <constraint firstAttribute="trailing" secondItem="PW0-An-E0q" secondAttribute="trailing" id="T1G-K3-rxc"/>
+                                    <constraint firstAttribute="bottom" secondItem="PW0-An-E0q" secondAttribute="bottom" id="UXz-2M-Zhz"/>
+                                    <constraint firstItem="PW0-An-E0q" firstAttribute="centerY" secondItem="d1W-ZV-bvN" secondAttribute="centerY" id="eLn-V5-ZK1"/>
+                                    <constraint firstItem="PW0-An-E0q" firstAttribute="leading" secondItem="d1W-ZV-bvN" secondAttribute="leading" id="mHJ-lN-MAJ"/>
+                                    <constraint firstItem="PW0-An-E0q" firstAttribute="centerX" secondItem="d1W-ZV-bvN" secondAttribute="centerX" id="x8a-ag-V2r"/>
                                 </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
+                                <rect key="frame" x="82" y="517" width="156" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PW0-An-E0q" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
-                                <rect key="frame" x="5" y="68" width="310" height="310"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="Ldl-ZT-tff"/>
-                                    <constraint firstAttribute="height" constant="310" id="REA-HG-Rxc"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.86775177717208862" blue="0.86775165796279907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="d1W-ZV-bvN" secondAttribute="trailing" id="4jO-n8-MQE"/>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="9AN-9u-T5n"/>
-                            <constraint firstItem="PW0-An-E0q" firstAttribute="top" secondItem="gDX-JQ-gtl" secondAttribute="bottom" constant="4" id="E8q-56-QJQ"/>
-                            <constraint firstItem="PW0-An-E0q" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="aXw-fP-Qhw"/>
-                            <constraint firstItem="ECC-n0-B2k" firstAttribute="top" secondItem="PW0-An-E0q" secondAttribute="bottom" constant="8" id="c6G-OB-Zln"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="bottom" id="M82-jT-Ve3"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="ZTw-nz-7Jc"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" id="dov-Qk-VMc"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="ECC-n0-B2k" secondAttribute="bottom" constant="30" id="yFJ-p2-EK7"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -597,11 +606,12 @@
                     <connections>
                         <outlet property="nameTF" destination="ECC-n0-B2k" id="Jc9-3g-BTb"/>
                         <outlet property="picture" destination="PW0-An-E0q" id="SVi-Iq-HHp"/>
+                        <outlet property="scrollView" destination="d1W-ZV-bvN" id="t5z-Dx-7NR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7Y-xn-GN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="885"/>
+            <point key="canvasLocation" x="1020" y="884.15492957746483"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6tF-ui-0uU">

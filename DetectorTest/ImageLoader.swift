@@ -44,7 +44,7 @@ class ImageLoader: UIImageView {
     
     
    public func downloadImageFrom(url: URL, imageMode: UIViewContentMode) {
-        contentMode = imageMode
+//        contentMode = imageMode
 
         if OtherVC.imageCache.keys.contains(url.absoluteString as NSString){
             image = UIImage(data: OtherVC.imageCache[url.absoluteString as NSString] as! Data)
