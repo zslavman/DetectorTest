@@ -210,11 +210,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OnC-JV-OkE" id="aEA-TD-FjB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2aI-z2-lNb">
-                                                    <rect key="frame" x="25" y="0.0" width="280" height="43.5"/>
+                                                    <rect key="frame" x="25" y="0.0" width="280" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -531,6 +531,7 @@
                             <outlet property="delegate" destination="lcf-If-uhY" id="0v0-W2-qCc"/>
                         </connections>
                     </collectionView>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="gkZ-xn-eHq" id="dhD-L4-lNr"/>
@@ -543,7 +544,7 @@
         <!--Other DetailVC-->
         <scene sceneID="S7x-1F-2Vb">
             <objects>
-                <viewController id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
@@ -552,21 +553,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" delaysContentTouches="NO" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <scrollView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-N1-Pa5" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-64" width="320" height="504"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-N1-Pa5" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="f9W-N1-Pa5" secondAttribute="trailing" id="Bwe-dH-DwI"/>
-                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="top" constant="-64" id="PJ7-Ow-DOc"/>
-                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerY" secondItem="d1W-ZV-bvN" secondAttribute="centerY" constant="-64" id="YGt-9d-JaZ"/>
-                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="leading" secondItem="d1W-ZV-bvN" secondAttribute="leading" id="aE5-Kr-QNL"/>
-                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerX" secondItem="d1W-ZV-bvN" secondAttribute="centerX" id="h71-zJ-DYG"/>
-                                    <constraint firstAttribute="bottom" secondItem="f9W-N1-Pa5" secondAttribute="bottom" constant="64" id="siV-cA-Jgf"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerY" secondItem="d1W-ZV-bvN" secondAttribute="centerY" id="3Gy-ya-Cfi"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerX" secondItem="d1W-ZV-bvN" secondAttribute="centerX" id="5yf-V2-9hZ"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="top" id="624-uw-p0K"/>
+                                    <constraint firstAttribute="bottom" secondItem="f9W-N1-Pa5" secondAttribute="bottom" id="Fpy-zP-wWY"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="leading" secondItem="d1W-ZV-bvN" secondAttribute="leading" id="UrF-uK-Wvc"/>
+                                    <constraint firstAttribute="trailing" secondItem="f9W-N1-Pa5" secondAttribute="trailing" id="jwn-gF-t0k"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
@@ -582,13 +583,13 @@
                             <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="8aa-ny-Ooy"/>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="9AN-9u-T5n"/>
                             <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="bottom" id="FyA-pZ-50H"/>
-                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerY" secondItem="6Aq-Hk-ASN" secondAttribute="centerY" constant="32" id="L62-wg-Soy"/>
-                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" constant="64" id="rsQ-Qi-hWa"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerY" secondItem="6Aq-Hk-ASN" secondAttribute="centerY" id="L62-wg-Soy"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" id="rsQ-Qi-hWa"/>
                             <constraint firstItem="d1W-ZV-bvN" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="yCs-2b-RXk"/>
                             <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="ECC-n0-B2k" secondAttribute="bottom" constant="30" id="yFJ-p2-EK7"/>
                         </constraints>
                     </view>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="nameTF" destination="ECC-n0-B2k" id="Jc9-3g-BTb"/>
                         <outlet property="picture" destination="f9W-N1-Pa5" id="Nje-28-ZZP"/>

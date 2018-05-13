@@ -36,7 +36,11 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         doubleTapGest.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(doubleTapGest)
         
+        // запоминаем высоту навбара
         navigationBarHeight = (navigationController?.navigationBar.frame.size.height)!
+        
+        print(navigationBarHeight)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideAndShowBar))
         view.addGestureRecognizer(tapGesture)
         
@@ -46,6 +50,9 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         
         loadPhotos()
         loadInfo()
+        
+//        scrollView.contentSize.height = 100
+
     }
 
 
@@ -113,8 +120,6 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
-    
     func zoomRectForScale(scale: CGFloat, center: CGPoint) -> CGRect {
         var zoomRect = CGRect.zero
         zoomRect.size.height = picture.frame.size.height / scale
@@ -128,13 +133,12 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
     
     
     
+    
+    
     func hideAndShowBar() {
-        print("tap!!")
         if barIsHidden == false {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                // fade animation
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                 self.navigationController?.navigationBar.alpha = 0.0
-                // set height animation
                 self.navigationController?.navigationBar.frame.size.height = 0.0
             }, completion: {
                 (_) in
@@ -142,10 +146,8 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
             })
         }
         else {
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
-                // fade animation
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                 self.navigationController?.navigationBar.alpha = 1.0
-                // set height animation
                 self.navigationController?.navigationBar.frame.size.height = self.navigationBarHeight
             }, completion: {
                 (_) in
@@ -158,7 +160,9 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
     
     
     
-    
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     
     
