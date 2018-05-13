@@ -22,8 +22,8 @@ class OtherVC: UICollectionViewController{
     
     private var clickedCellNum:Int = 0
     
-    private var desiredWidth = 100.0 // 160 желаемый размер ячейки
-    private var cellMarginSize = 5.0
+    private var desiredWidth = 105.0 // 160 желаемый размер ячейки
+    private var cellMarginSize = 3.0
 
     
     override func viewDidLoad() {

@@ -210,11 +210,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OnC-JV-OkE" id="aEA-TD-FjB">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2aI-z2-lNb">
-                                                    <rect key="frame" x="25" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="25" y="0.0" width="280" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -491,19 +491,19 @@
         <scene sceneID="pah-1I-SWl">
             <objects>
                 <collectionViewController id="lcf-If-uhY" customClass="OtherVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gkZ-xn-eHq" customClass="GradientCollectionView" customModule="DetectorTest" customModuleProvider="target">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gkZ-xn-eHq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.76633062183945755" green="0.88371054331117638" blue="0.99909293651580811" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="QMl-7h-HgM">
                             <size key="itemSize" width="95" height="80"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                            <inset key="sectionInset" minX="3" minY="3" maxX="3" maxY="3"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemCell" id="ztb-H5-BM7" customClass="OtherCell" customModule="DetectorTest" customModuleProvider="target">
-                                <rect key="frame" x="5" y="5" width="95" height="80"/>
+                                <rect key="frame" x="3" y="3" width="95" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="95" height="80"/>
@@ -526,14 +526,6 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="1" green="0.3620856454713427" blue="0.10353207571037304" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="lcf-If-uhY" id="wSK-2d-evg"/>
                             <outlet property="delegate" destination="lcf-If-uhY" id="0v0-W2-qCc"/>
@@ -551,30 +543,30 @@
         <!--Other DetailVC-->
         <scene sceneID="S7x-1F-2Vb">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN" customClass="GradientView" customModule="DetectorTest" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="6Aq-Hk-ASN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" delaysContentTouches="NO" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PW0-An-E0q" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-N1-Pa5" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-64" width="320" height="504"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="PW0-An-E0q" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="top" id="2KQ-1T-hc5"/>
-                                    <constraint firstAttribute="width" secondItem="d1W-ZV-bvN" secondAttribute="height" multiplier="40:71" id="60S-XR-iWP"/>
-                                    <constraint firstAttribute="trailing" secondItem="PW0-An-E0q" secondAttribute="trailing" id="T1G-K3-rxc"/>
-                                    <constraint firstAttribute="bottom" secondItem="PW0-An-E0q" secondAttribute="bottom" id="UXz-2M-Zhz"/>
-                                    <constraint firstItem="PW0-An-E0q" firstAttribute="centerY" secondItem="d1W-ZV-bvN" secondAttribute="centerY" id="eLn-V5-ZK1"/>
-                                    <constraint firstItem="PW0-An-E0q" firstAttribute="leading" secondItem="d1W-ZV-bvN" secondAttribute="leading" id="mHJ-lN-MAJ"/>
-                                    <constraint firstItem="PW0-An-E0q" firstAttribute="centerX" secondItem="d1W-ZV-bvN" secondAttribute="centerX" id="x8a-ag-V2r"/>
+                                    <constraint firstAttribute="trailing" secondItem="f9W-N1-Pa5" secondAttribute="trailing" id="Bwe-dH-DwI"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="top" constant="-64" id="PJ7-Ow-DOc"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerY" secondItem="d1W-ZV-bvN" secondAttribute="centerY" constant="-64" id="YGt-9d-JaZ"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="leading" secondItem="d1W-ZV-bvN" secondAttribute="leading" id="aE5-Kr-QNL"/>
+                                    <constraint firstItem="f9W-N1-Pa5" firstAttribute="centerX" secondItem="d1W-ZV-bvN" secondAttribute="centerX" id="h71-zJ-DYG"/>
+                                    <constraint firstAttribute="bottom" secondItem="f9W-N1-Pa5" secondAttribute="bottom" constant="64" id="siV-cA-Jgf"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
@@ -584,28 +576,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.86775177717208862" blue="0.86775165796279907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="d1W-ZV-bvN" secondAttribute="trailing" id="4jO-n8-MQE"/>
+                            <constraint firstAttribute="trailing" secondItem="d1W-ZV-bvN" secondAttribute="trailing" id="0c2-nb-Gri"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="8aa-ny-Ooy"/>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="9AN-9u-T5n"/>
-                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="bottom" id="M82-jT-Ve3"/>
-                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="ZTw-nz-7Jc"/>
-                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" id="dov-Qk-VMc"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="bottom" id="FyA-pZ-50H"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerY" secondItem="6Aq-Hk-ASN" secondAttribute="centerY" constant="32" id="L62-wg-Soy"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" constant="64" id="rsQ-Qi-hWa"/>
+                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="yCs-2b-RXk"/>
                             <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="ECC-n0-B2k" secondAttribute="bottom" constant="30" id="yFJ-p2-EK7"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                <color key="value" red="1" green="0.19156239605499725" blue="0.23660627076163143" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="nameTF" destination="ECC-n0-B2k" id="Jc9-3g-BTb"/>
-                        <outlet property="picture" destination="PW0-An-E0q" id="SVi-Iq-HHp"/>
+                        <outlet property="picture" destination="f9W-N1-Pa5" id="Nje-28-ZZP"/>
                         <outlet property="scrollView" destination="d1W-ZV-bvN" id="t5z-Dx-7NR"/>
                     </connections>
                 </viewController>
