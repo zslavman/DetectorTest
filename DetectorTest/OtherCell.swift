@@ -25,6 +25,15 @@ class OtherCell:UICollectionViewCell{
     }
     
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        if self.subviews.contains(picture){
+            self.contentView.removeFromSuperview()
+            picture.image = nil
+        }
+    }
+    
+    
 }
 
 

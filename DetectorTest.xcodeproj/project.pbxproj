@@ -79,19 +79,19 @@
 		84BCD3392025CBAE00BDD195 /* DetectorTest */ = {
 			isa = PBXGroup;
 			children = (
-				84E7D1C5202E6C5A00D1B62F /* Storage.xcdatamodeld */,
+				84BCD33E2025CBAE00BDD195 /* Main.storyboard */,
 				84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */,
 				84BCD34F2025FADA00BDD195 /* Dictionary.swift */,
 				84BCD33C2025CBAE00BDD195 /* MainVC.swift */,
 				84BCD359202613D000BDD195 /* Group */,
 				84E6DFAD2041EA0C0014A90E /* Presentation mode */,
-				84BCD33E2025CBAE00BDD195 /* Main.storyboard */,
-				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
-				84BCD3462025CBAE00BDD195 /* LaunchScreen.storyboard */,
 				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
 				56EE12EE2079527C00B6E537 /* GradientView.swift */,
 				564454D02098D31A00036F63 /* GradientCollectionView.swift */,
+				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
+				84E7D1C5202E6C5A00D1B62F /* Storage.xcdatamodeld */,
 				84BCD3492025CBAE00BDD195 /* Info.plist */,
+				84BCD3462025CBAE00BDD195 /* LaunchScreen.storyboard */,
 			);
 			path = DetectorTest;
 			sourceTree = "<group>";

@@ -22,7 +22,7 @@ class OtherVC: UICollectionViewController{
     
     private var clickedCellNum:Int = 0
     
-    private var desiredWidth = 105.0 // 160 желаемый размер ячейки
+    private var desiredWidth = 100 // 160 желаемый размер ячейки
     private var cellMarginSize = 3.0
 
     
@@ -36,6 +36,9 @@ class OtherVC: UICollectionViewController{
         if (OtherVC.jsonDict.isEmpty) {
             getJSON()
         }
+        else {
+            setupGridView()
+        }
     }
         
     
@@ -48,19 +51,6 @@ class OtherVC: UICollectionViewController{
     
     
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        
-//        setupGridView()
-//        DispatchQueue.main.async {
-//            if (OtherVC.jsonDict.isEmpty) {
-//                self.getJSON()
-//            }
-//            else{
-//                self.collectionView?.reloadData()
-//            }
-//        }
-//    }
     
     
     // событие поворота экрана
@@ -72,7 +62,7 @@ class OtherVC: UICollectionViewController{
             print("Portrait")
         }
         setupGridView()
-        collectionView?.reloadData()
+        collectionView?.reloadData()// если картинки не догрузились - будут повторы!!!
     }
     
     
@@ -150,6 +140,11 @@ class OtherVC: UICollectionViewController{
     
     
     
+
+    
+    
+    
+    
     // регулировка размеров ячейки в зависимости от размеров экрана
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
 
@@ -166,6 +161,8 @@ class OtherVC: UICollectionViewController{
         
         let margin = CGFloat(cellMarginSize * 2)
         let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        
+//        print("ширина зазора = \(cellMarginSize); Ширина ячейки = \(width)")
         
         return width
     }
@@ -221,10 +218,10 @@ class OtherVC: UICollectionViewController{
                 assertionFailure("Did't recognize storyboard identifier")
             }
         }
-
-        
-        
     }
+
+    
+    
     
     
     

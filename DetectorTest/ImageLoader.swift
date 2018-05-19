@@ -14,6 +14,7 @@ class ImageLoader: UIImageView {
    
     var imageURLString: String?
     var spiner:UIActivityIndicatorView!
+    var downloadedLink = ""
     
     
     private func addSpiner(toItem target:AnyObject) {
@@ -32,9 +33,9 @@ class ImageLoader: UIImageView {
     
     
     
-    public func downloadImageFrom(urlString: String, imageMode: UIViewContentMode) {
+    public func downloadImageFrom(urlString: String, imageMode: UIViewContentMode, callback:(() -> Void)? = nil) {
         guard let url = URL(string: urlString) else { return }
-        downloadImageFrom(url: url, imageMode: imageMode)
+        downloadImageFrom(url: url, imageMode: imageMode, callback:callback)
     }
     
     
@@ -43,11 +44,16 @@ class ImageLoader: UIImageView {
     
     
     
-   public func downloadImageFrom(url: URL, imageMode: UIViewContentMode) {
+    public func downloadImageFrom(url: URL, imageMode: UIViewContentMode, callback:(() -> Void)? = nil) {
 //        contentMode = imageMode
 
+        downloadedLink = url.absoluteString
+        
         if OtherVC.imageCache.keys.contains(url.absoluteString as NSString){
             image = UIImage(data: OtherVC.imageCache[url.absoluteString as NSString] as! Data)
+            if callback != nil{
+                callback!()
+            }
         }
         else {
             addSpiner(toItem: self)
@@ -63,7 +69,10 @@ class ImageLoader: UIImageView {
                     self.spiner.stopAnimating()
                     self.image = UIImage(data: imgData)
                     OtherVC.imageCache.updateValue(imgData as AnyObject, forKey: url.absoluteString as NSString)
-
+                    
+                    if callback != nil{
+                        callback!()
+                    }
                 }
             }
         }

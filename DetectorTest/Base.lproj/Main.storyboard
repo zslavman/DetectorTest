@@ -395,7 +395,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="1" green="0.54258094672566348" blue="0.29177591224331745" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                 <color key="value" red="1" green="0.96470588239999999" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -539,12 +539,12 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKs-Gp-W75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275.625" y="883.09859154929575"/>
+            <point key="canvasLocation" x="278" y="884"/>
         </scene>
         <!--Other DetailVC-->
         <scene sceneID="S7x-1F-2Vb">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overFullScreen" id="Ybs-E1-R1J" customClass="OtherDetailVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gDX-JQ-gtl"/>
                         <viewControllerLayoutGuide type="bottom" id="HcJ-vy-ugV"/>
@@ -556,8 +556,8 @@
                             <scrollView clipsSubviews="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1W-ZV-bvN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-N1-Pa5" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-64" width="320" height="568"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f9W-N1-Pa5" customClass="ImageLoader" customModule="DetectorTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -570,8 +570,30 @@
                                     <constraint firstAttribute="trailing" secondItem="f9W-N1-Pa5" secondAttribute="trailing" id="jwn-gF-t0k"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название картинки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
-                                <rect key="frame" x="82" y="517" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIC-QM-pXr">
+                                <rect key="frame" x="0.0" y="527" width="320" height="41"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="AIw-fP-gdr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXIF data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="frC-uf-GIS">
+                                <rect key="frame" x="0.0" y="547" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ttu-c6-1sC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-n0-B2k">
+                                <rect key="frame" x="82" y="527" width="156" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="U05-nU-CRJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -582,15 +604,26 @@
                             <constraint firstAttribute="trailing" secondItem="d1W-ZV-bvN" secondAttribute="trailing" id="0c2-nb-Gri"/>
                             <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="8aa-ny-Ooy"/>
                             <constraint firstItem="ECC-n0-B2k" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="9AN-9u-T5n"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="frC-uf-GIS" secondAttribute="bottom" id="BDq-aP-jIY"/>
                             <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="d1W-ZV-bvN" secondAttribute="bottom" id="FyA-pZ-50H"/>
-                            <constraint firstItem="d1W-ZV-bvN" firstAttribute="centerY" secondItem="6Aq-Hk-ASN" secondAttribute="centerY" id="L62-wg-Soy"/>
+                            <constraint firstItem="frC-uf-GIS" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="G9K-hh-ZCT"/>
+                            <constraint firstItem="vIC-QM-pXr" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="H7g-TB-Kbz"/>
+                            <constraint firstItem="frC-uf-GIS" firstAttribute="centerX" secondItem="6Aq-Hk-ASN" secondAttribute="centerX" id="RKb-YK-H9Y"/>
+                            <constraint firstItem="ECC-n0-B2k" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leadingMargin" constant="66" id="UMv-du-p5f"/>
+                            <constraint firstAttribute="trailing" secondItem="vIC-QM-pXr" secondAttribute="trailing" id="UcX-2M-sbd"/>
+                            <constraint firstAttribute="trailing" secondItem="frC-uf-GIS" secondAttribute="trailing" id="VEZ-Lc-ECd"/>
+                            <constraint firstItem="vIC-QM-pXr" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="a5o-6d-8hb"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="vIC-QM-pXr" secondAttribute="bottom" id="f2B-E7-Hm8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ECC-n0-B2k" secondAttribute="trailing" constant="66" id="if5-wb-OJo"/>
                             <constraint firstItem="d1W-ZV-bvN" firstAttribute="top" secondItem="6Aq-Hk-ASN" secondAttribute="top" id="rsQ-Qi-hWa"/>
                             <constraint firstItem="d1W-ZV-bvN" firstAttribute="leading" secondItem="6Aq-Hk-ASN" secondAttribute="leading" id="yCs-2b-RXk"/>
-                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="ECC-n0-B2k" secondAttribute="bottom" constant="30" id="yFJ-p2-EK7"/>
+                            <constraint firstItem="HcJ-vy-ugV" firstAttribute="top" secondItem="ECC-n0-B2k" secondAttribute="bottom" constant="20" id="yFJ-p2-EK7"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="exifTF" destination="frC-uf-GIS" id="MXp-ae-bnO"/>
+                        <outlet property="infoBacking" destination="vIC-QM-pXr" id="4vW-SG-sPp"/>
                         <outlet property="nameTF" destination="ECC-n0-B2k" id="Jc9-3g-BTb"/>
                         <outlet property="picture" destination="f9W-N1-Pa5" id="Nje-28-ZZP"/>
                         <outlet property="scrollView" destination="d1W-ZV-bvN" id="t5z-Dx-7NR"/>
@@ -598,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g7Y-xn-GN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="884.15492957746483"/>
+            <point key="canvasLocation" x="1033" y="883"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6tF-ui-0uU">
