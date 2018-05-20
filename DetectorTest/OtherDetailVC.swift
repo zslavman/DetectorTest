@@ -42,10 +42,10 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         doubleTapGest.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(doubleTapGest)
         
-        // запоминаем высоту навбара
-        navigationBarHeight = (navigationController?.navigationBar.frame.size.height)!
+        // запоминаем высоту навбара (чтоб прятать его)
+//        navigationBarHeight = (navigationController?.navigationBar.frame.size.height)!
+//        print("navigationBarHeight = \(navigationBarHeight)")
         
-        print("navigationBarHeight = \(navigationBarHeight)")
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(hideAndShowBar))
         view.addGestureRecognizer(doubleTap)
@@ -57,9 +57,27 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         loadPhotos()
         loadInfo()
         
-//        scrollView.contentSize.height = 100
-
+        
+        // свайпы влево и вправо
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeGesture))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeGesture))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        view.addGestureRecognizer(swipeLeft)
+        
+//        print("размер картинки внутри picture: \(picture.image?.size.height)")
+//        picture.frame.origin.x = (scrollView.bounds.size.width - picture.frame.size.width) / 2
+        
+        // увеличиваем картинку чтоб полностью заполнила собой экран (aspect fill)
+        scrollView.setZoomScale(scrollView.frame.height/scrollView.frame.width, animated: false)
+        
+//        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
+    
+    
+    
 
 
     
@@ -68,11 +86,16 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
         return picture
     }
     
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     
     
     
-    
+    /* ========================================*/
+    /* ========== при СКРОЛЕ и ЗУМ ============*/
+    /* ========================================*/
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let imageViewSize = picture.frame.size
 //        let scrollViewSize = scrollView.bounds.size
@@ -82,32 +105,60 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
 //        
 //        scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
         
-        
-        
 //        if scrollView.zoomScale < scrollView.minimumZoomScale {
 //            picture.contentOffset(x: scrollView.bounds.size.width - picture.frame.size.width, y: scrollView.bounds.size.height - picture.frame.size.height)
 //        }
         if !barIsHidden {
             hideAndShowBar()
         }
-        print("Zoom =  \(scrollView.zoomScale)")
+//        print("расположение картинки по Х: \(picture.frame.origin.x)")
+        print("размер скролвью контента: \(scrollView.contentSize)")
+//        print("размер границ скролвью: \(scrollView.bounds)")
+
         
-       
+//        let imageViewSize = picture.frame.size
+//        let scrollViewSize = scrollView.bounds.size
+//        print("ширина картинки =  \(imageViewSize.width)")
+//        if imageViewSize.width < scrollViewSize.width {
+//            picture.frame.origin.x = (scrollViewSize.width - imageViewSize.width) / 2
+//        }
+    }
+        
+    
+    
+    
+    
+    
+    
+    func onSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.left:
+                print("Свайп влево")
+                
+            case UISwipeGestureRecognizerDirection.right:
+                print("Свайп вправо")
+                
+            default:
+                break
+            }
+        }
     }
     
     
     
     
     
+    /* =============================================*/
+    /* ========== ЗАГРУЗКА ФОТОК И ИНФЫ ============*/
+    /* =============================================*/
     public func loadInfo(){
         let city = OtherVC.jsonDict[num].value(forKeyPath: "city") as! String!
         nameTF.text = "Город: \(city!)"
         title = OtherVC.jsonDict[num].value(forKeyPath: "description") as! String?
     }
-    
-    
-    
-    
     
     public func loadPhotos(){
         
@@ -120,8 +171,11 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
 
 
     
+
     
-    // чтение EXIF
+    /* ===================================*/
+    /* ========== чтение EXIF ============*/
+    /* ===================================*/
     func readEXIF(){
         
         let im = OtherVC.imageCache[picture.downloadedLink as NSString]
@@ -147,7 +201,9 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
     
     
     
-    // событие поворота экрана
+    /* ======================================*/
+    /* ========== ПОВОРОТ ЭКРАНА ============*/
+    /* ======================================*/
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         scrollView.setZoomScale(1, animated: true)
     }
@@ -156,17 +212,7 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
  
     
     
-    // аля диспоз
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // Show the Navigation Bar
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    
-    
-    
-    
+
     
     
     /* ================================================*/
@@ -196,7 +242,9 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
     
     
     
-    
+    /* ================================================*/
+    /* ========== ПОКАЗАТЬ/СПРЯТАТЬ НАВБАР ============*/
+    /* ================================================*/
     func hideAndShowBar() {
         if !barIsHidden { // прячем
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
@@ -205,10 +253,6 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
                 self.exifTF.alpha = 0.0
                 self.nameTF.alpha = 0.0
                 self.infoBacking.alpha = 0.0
-                
-//                self.exifTF.isHidden = true
-//                self.nameTF.isHidden = true
-//                self.infoBacking.isHidden = true
             }, completion: {
                 (_) in
                 self.barIsHidden = true
@@ -218,10 +262,6 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                 self.navigationController?.navigationBar.alpha = 1.0
 //                self.navigationController?.navigationBar.frame.size.height = self.navigationBarHeight
-                
-//                self.exifTF.isHidden = false
-//                self.nameTF.isHidden = false
-//                self.infoBacking.isHidden = false
                 self.exifTF.alpha = 1.0
                 self.nameTF.alpha = 1.0
                 self.infoBacking.alpha = 1.0
@@ -233,11 +273,19 @@ class OtherDetailVC: UIViewController, UIScrollViewDelegate {
     }
     
     
+
     
     
     
-    override var prefersStatusBarHidden: Bool{
-        return true
+    
+    
+    /* ==============================*/
+    /* ========== ДИСПОЗ ============*/
+    /* ==============================*/
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Show the Navigation Bar
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     
