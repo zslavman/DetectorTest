@@ -55,6 +55,10 @@ class MainVC: UIViewController {
 
         // заполняем все текстовые поля
         onLangClick(self)
+        
+        let progress = ProgressBar()
+        view.addSubview(progress)
+        progress.frame.origin = CGPoint(x: (self.view.frame.width - CGFloat(progress.thisWidth))/2, y: self.view.frame.height/2)
     }
 
     

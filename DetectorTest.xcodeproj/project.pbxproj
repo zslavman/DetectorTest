@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561ABFDF208FCF5200CAC544 /* ImageLoader.swift */; };
+		56252DB420D5834000AA458B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56252DB320D5834000AA458B /* ProgressBar.swift */; };
 		564454CF2098CB4800036F63 /* OtherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564454CE2098CB4800036F63 /* OtherVC.swift */; };
 		564454D12098D31A00036F63 /* GradientCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564454D02098D31A00036F63 /* GradientCollectionView.swift */; };
 		56671DDA209925DB00A957BE /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56671DD9209925DB00A957BE /* OtherCell.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		561ABFDF208FCF5200CAC544 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		56252DB320D5834000AA458B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		564454CE2098CB4800036F63 /* OtherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherVC.swift; sourceTree = "<group>"; };
 		564454D02098D31A00036F63 /* GradientCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCollectionView.swift; sourceTree = "<group>"; };
 		56671DD9209925DB00A957BE /* OtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				84E6DFAD2041EA0C0014A90E /* Presentation mode */,
 				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
 				56EE12EE2079527C00B6E537 /* GradientView.swift */,
+				56252DB320D5834000AA458B /* ProgressBar.swift */,
 				564454D02098D31A00036F63 /* GradientCollectionView.swift */,
 				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
 				84E7D1C5202E6C5A00D1B62F /* Storage.xcdatamodeld */,
@@ -197,6 +200,7 @@
 				564454D12098D31A00036F63 /* GradientCollectionView.swift in Sources */,
 				56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */,
 				84BCD3502025FADA00BDD195 /* Dictionary.swift in Sources */,
+				56252DB420D5834000AA458B /* ProgressBar.swift in Sources */,
 				84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */,
 				561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */,
 				84BCD358202613B600BDD195 /* OtherDetailVC.swift in Sources */,

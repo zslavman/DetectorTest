@@ -106,7 +106,7 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
         torchState = nowLighting // для установки вида кнопки, т.к. изначально это включенная кнопка
         progressBar.isHidden = true
-
+        
     }
     
   
