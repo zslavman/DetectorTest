@@ -13,6 +13,7 @@
 		564454D12098D31A00036F63 /* GradientCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564454D02098D31A00036F63 /* GradientCollectionView.swift */; };
 		56671DDA209925DB00A957BE /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56671DD9209925DB00A957BE /* OtherCell.swift */; };
 		56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE12EE2079527C00B6E537 /* GradientView.swift */; };
+		56F1BF4620D6E69500E7D2FB /* SimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F1BF4520D6E69500E7D2FB /* SimpleButton.swift */; };
 		846F52AC202F8098000B681C /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846F52AB202F8098000B681C /* FriendsVC.swift */; };
 		84BCD33B2025CBAE00BDD195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */; };
 		84BCD33D2025CBAE00BDD195 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCD33C2025CBAE00BDD195 /* MainVC.swift */; };
@@ -34,6 +35,7 @@
 		564454D02098D31A00036F63 /* GradientCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCollectionView.swift; sourceTree = "<group>"; };
 		56671DD9209925DB00A957BE /* OtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		56EE12EE2079527C00B6E537 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		56F1BF4520D6E69500E7D2FB /* SimpleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleButton.swift; sourceTree = "<group>"; };
 		846F52AB202F8098000B681C /* FriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; usesTabs = 0; wrapsLines = 1; };
 		84BCD3372025CBAE00BDD195 /* DetectorTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectorTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				84BCD359202613D000BDD195 /* Group */,
 				84E6DFAD2041EA0C0014A90E /* Presentation mode */,
 				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
+				56F1BF4520D6E69500E7D2FB /* SimpleButton.swift */,
 				56EE12EE2079527C00B6E537 /* GradientView.swift */,
 				56252DB320D5834000AA458B /* ProgressBar.swift */,
 				564454D02098D31A00036F63 /* GradientCollectionView.swift */,
@@ -196,6 +199,7 @@
 				564454CF2098CB4800036F63 /* OtherVC.swift in Sources */,
 				84BCD33D2025CBAE00BDD195 /* MainVC.swift in Sources */,
 				56671DDA209925DB00A957BE /* OtherCell.swift in Sources */,
+				56F1BF4620D6E69500E7D2FB /* SimpleButton.swift in Sources */,
 				84E7D1C7202E6C5A00D1B62F /* Storage.xcdatamodeld in Sources */,
 				564454D12098D31A00036F63 /* GradientCollectionView.swift in Sources */,
 				56EE12EF2079527C00B6E537 /* GradientView.swift in Sources */,

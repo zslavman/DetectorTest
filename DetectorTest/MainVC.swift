@@ -49,16 +49,14 @@ class MainVC: UIViewController {
         LANG = userDefaults.integer(forKey: "lang")
         
         buttonsArr = [bttn1, bttn2, bttn3, bttn4]
-        for i in 0..<buttonsArr.count{
-            MainVC.designFor(button: buttonsArr[i], radius: 8)
-        }
+//        for i in 0..<buttonsArr.count{
+//            MainVC.designFor(button: buttonsArr[i], radius: 8)
+//        }
 
         // заполняем все текстовые поля
         onLangClick(self)
         
-        let progress = ProgressBar()
-        view.addSubview(progress)
-        progress.frame.origin = CGPoint(x: (self.view.frame.width - CGFloat(progress.thisWidth))/2, y: self.view.frame.height/2)
+        
     }
 
     

@@ -19,7 +19,8 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var shine: UIImageView!
-    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var progressBar: UIProgressView! // стандартный прогрессбар
+    public var progress:ProgressBar!                // кастомный прогрессбар
     
     let pickerNumbers = [Int](1...60)
     
@@ -37,7 +38,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     let dict = Dictionary().dict
     
     let userDefaults = UserDefaults.standard
-    
     
     
     
@@ -70,16 +70,20 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             _timerState = newValue
             if newValue == START{
                 countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+                progress.startAnimate(_delay)
                 UIApplication.shared.isIdleTimerDisabled = true
                 progressBar.isHidden = false
+                progress.isHidden = false
             }
             else if newValue == STOP{
                 countDownTimer.invalidate()
+                progress.stopAnimation()
                 countDownTimer = nil
                 delay = _delay
                 timerTF.text = String(delay)
                 UIApplication.shared.isIdleTimerDisabled = false
                 progressBar.isHidden = true
+                progress.isHidden = true
             }
         }
     }
@@ -95,6 +99,16 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         title = dict[1]![LANG]
         timerTF.text = String(delay)
         
+        // кастомный прогрессбар
+        progress = ProgressBar()
+        //        progress.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(progress)
+        progress.frame.origin = CGPoint(x: shine.frame.origin.x + (shine.frame.size.width - CGFloat(progress.thisWidth))/2, y: shine.frame.origin.y + shine.frame.size.height + 10)
+        //        print("размеры прогрессбара = \(progress.sizeToFit())")
+        //        print("размеры прогрессбара = \(progress.frame.size)")
+        
+        
+        
         //        print("nowLighting = \(nowLighting)") // в первый раз будет false
         nowLighting = userDefaults.bool(forKey: "light")
         needShutDown = userDefaults.bool(forKey: "needShutDown")
@@ -106,7 +120,9 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
         torchState = nowLighting // для установки вида кнопки, т.к. изначально это включенная кнопка
         progressBar.isHidden = true
+        progress.isHidden = true
         
+       
     }
     
   
@@ -210,6 +226,7 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                 }
                 shine.alpha = 0.1
                 progressBar.progress = 1
+//                progress.setProgress = 1
             }
             userDefaults.set(newValue, forKey: "light")
             userDefaults.synchronize()
@@ -250,13 +267,15 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         print(delay)
         
         //прогресс бар
-        let progress = Float(delay)/Float(_delay)
-        progressBar.setProgress(Float(progress), animated: true)
+        let progressCount = Float(delay)/Float(_delay)
+        progressBar.setProgress(Float(progressCount), animated: true)
+        
+//        progress.setProgress = Float(progressCount)
         
         switch delay {
 //        case 0...9:
 //            timerTF.text = String(delay)
-        case -1:
+        case 0:
             onTorchClick(self)
         default:
             timerTF.text = String(delay)
@@ -277,6 +296,7 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
             onTorchClick(self)
         }
         progressBar.progress = 1
+//        progress.setProgress = 1
     }
 
     

@@ -32,9 +32,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="425-Lg-Ucn">
                                 <rect key="frame" x="91" y="153" width="138" height="262"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmM-v0-sTZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmM-v0-sTZ" customClass="SimpleButton" customModule="DetectorTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="138" height="43"/>
-                                        <color key="backgroundColor" red="0.2588235438" green="0.75686275960000005" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="138" id="C5Q-4k-EXq"/>
                                             <constraint firstAttribute="height" constant="43" id="nlw-mn-QHo"/>
@@ -44,13 +43,17 @@
                                         <state key="normal" title="Друзья">
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="JyH-gA-y5p" kind="presentation" identifier="friendsSegue" modalTransitionStyle="flipHorizontal" id="jwV-Qb-kyt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTJ-RD-MrV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTJ-RD-MrV" customClass="SimpleButton" customModule="DetectorTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="73" width="138" height="43"/>
-                                        <color key="backgroundColor" red="0.2588235438" green="0.75686275960000005" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="138" id="Oxh-TL-5dv"/>
                                             <constraint firstAttribute="height" constant="43" id="xaD-bn-oOA"/>
@@ -60,13 +63,17 @@
                                         <state key="normal" title="Шняжки">
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="svb-Ag-BAj" kind="show" identifier="smilesSegue" id="bAW-7n-eyL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAT-w0-5o8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAT-w0-5o8" customClass="SimpleButton" customModule="DetectorTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="146" width="138" height="43"/>
-                                        <color key="backgroundColor" red="0.2588235438" green="0.75686275960000005" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="138" id="2jF-Z4-H6A"/>
                                             <constraint firstAttribute="height" constant="43" id="eSg-4I-puh"/>
@@ -76,13 +83,17 @@
                                         <state key="normal" title="Природа">
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onNatureClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8vV-uA-RgW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75c-8l-afd">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75c-8l-afd" customClass="SimpleButton" customModule="DetectorTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="219" width="138" height="43"/>
-                                        <color key="backgroundColor" red="0.2588235438" green="0.75686275960000005" blue="0.96862745289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="3UN-NV-ms7"/>
                                             <constraint firstAttribute="width" constant="138" id="ki2-2F-JME"/>
@@ -92,6 +103,11 @@
                                         <state key="normal" title="Другое...">
                                             <color key="titleColor" red="0.99599701166152954" green="0.99599379301071167" blue="0.99202793836593628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="lcf-If-uhY" kind="show" identifier="otherSegue" id="hJu-eq-eER"/>
                                         </connections>
@@ -299,7 +315,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-Gt-pA8">
-                                <rect key="frame" x="23.5" y="359" width="273" height="48"/>
+                                <rect key="frame" x="24" y="359" width="273" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
                                         <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
@@ -344,6 +360,7 @@
                                             <constraint firstAttribute="height" constant="31" id="9yd-ZL-KFO"/>
                                             <constraint firstAttribute="width" constant="49" id="q2K-RC-k8Q"/>
                                         </constraints>
+                                        <color key="onTintColor" red="0.25882352941176473" green="0.83529411764705885" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="onSwitchMode:" destination="svb-Ag-BAj" eventType="valueChanged" id="VgT-Zo-LZb"/>
                                         </connections>
