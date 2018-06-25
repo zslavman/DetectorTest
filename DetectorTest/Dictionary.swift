@@ -16,9 +16,9 @@ class Dictionary {
     let dict = [100:["Русский", "English", "Español"],
                 
         0:["Друзья", "Friends", "Amigos"],
-        1:["Шняжки", "Tricks", "Trucos"],
+        1:["Фонарик", "Torch", "Antorcha"],
         2:["Природа", "Nature", "Naturaleza"],
-        3:["Другое", "Other", "Otro"],
+        3:["JSON галерея", "JSON gallery", "JSON"],
         4:["Назад", "Back", "Regresar"],
         5:["Удалить", "Delete", "Eliminar"],
         6:["Выделено:", "Selected:", "Asignado:"],
@@ -30,7 +30,8 @@ class Dictionary {
         12:["Отмена", "Cancel", "Cancelar"],
         13:["Свет ВКЛ", "Light turned ON", "Luz encendida"],
         14:["Свет ВЫКЛ", "Light turned OFF", "Luz apagada"],
-        15:["", "", ""]
+        15:["Кастомный progbarr", "Custom progbarr", "Barra de progreso"],
+        16:["", "", ""]
         
         ] as [Int:Array<String>]
 

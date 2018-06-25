@@ -12,10 +12,11 @@ import CoreData
 class MainVC: UIViewController {
 
     
-    @IBOutlet weak var bttn1: UIButton!
-    @IBOutlet weak var bttn2: UIButton!
-    @IBOutlet weak var bttn3: UIButton!
-    @IBOutlet weak var bttn4: UIButton!
+    @IBOutlet weak var bttn1: UIButton! // Друзья
+    @IBOutlet weak var bttn2: UIButton! // Фонарик
+    @IBOutlet weak var bttn3: UIButton! // Природа
+    @IBOutlet weak var bttn4: UIButton! // JSON галлерея
+    @IBOutlet weak var bttn5: UIButton! // кастомный прогрессбар
     @IBOutlet weak var langBttn: UIButton!
     
     // сюда будут возвращаться из других экранов
@@ -44,6 +45,13 @@ class MainVC: UIViewController {
         
         super.viewDidLoad()
         
+        bttn4.titleLabel?.adjustsFontSizeToFitWidth = true
+        bttn5.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        bttn5.titleLabel!.preferredMaxLayoutWidth = bttn5.layer.frame.width - 50
+        //        print("Реальная ширина поля = \(bttn5.titleLabel!.frame.width)")
+        //        print("Максимальная ширина поля = \(bttn5.titleLabel!.preferredMaxLayoutWidth)")
+        
  
         // если первый запуск, то получим значение 0
         LANG = userDefaults.integer(forKey: "lang")
@@ -58,6 +66,10 @@ class MainVC: UIViewController {
         
         
     }
+
+    
+    
+    
 
     
     
@@ -96,6 +108,7 @@ class MainVC: UIViewController {
         for i in 0..<buttonsArr.count{
             buttonsArr[i].setTitle(dict[i]![LANG], for: .normal)
         }
+        bttn5.setTitle(dict[15]![LANG], for: .normal)
         langBttn.setTitle(dict[100]![LANG], for: .normal)
         title = dict[7]![LANG]
     }
