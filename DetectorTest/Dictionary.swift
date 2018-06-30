@@ -18,7 +18,7 @@ class Dictionary {
         0:["Друзья", "Friends", "Amigos"],
         1:["Фонарик", "Torch", "Antorcha"],
         2:["Природа", "Nature", "Naturaleza"],
-        3:["JSON галерея", "JSON gallery", "JSON"],
+        3:["JSON галерея", "JSON", "JSON"],
         4:["Назад", "Back", "Regresar"],
         5:["Удалить", "Delete", "Eliminar"],
         6:["Выделено:", "Selected:", "Asignado:"],
