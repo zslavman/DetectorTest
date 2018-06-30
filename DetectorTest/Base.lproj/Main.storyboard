@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="1020" y="28.52112676056338"/>
         </scene>
-        <!--View Controller-->
+        <!--Custom Prog Bar-->
         <scene sceneID="zlo-P6-Fu2">
             <objects>
-                <viewController id="YZP-Uk-4rO" sceneMemberID="viewController">
+                <viewController id="YZP-Uk-4rO" customClass="CustomProgBar" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XJd-9A-Eac"/>
                         <viewControllerLayoutGuide type="bottom" id="1Qf-4q-kPj"/>
@@ -187,12 +187,25 @@
                     <view key="view" contentMode="scaleToFill" id="2hw-t0-fh9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="progbar_empty" translatesAutoresizingMaskIntoConstraints="NO" id="U7u-8y-lBY">
+                                <rect key="frame" x="40" y="188" width="240" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="progbar_filling" translatesAutoresizingMaskIntoConstraints="NO" id="yRS-Cf-gnp">
+                                <rect key="frame" x="40" y="188" width="240" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="progress_filling" destination="yRS-Cf-gnp" id="RPL-eO-bIn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPr-ws-wHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="92"/>
+            <point key="canvasLocation" x="1891.875" y="91.901408450704224"/>
         </scene>
         <!--FriendsVC-->
         <scene sceneID="Apm-Y7-yCn">
@@ -444,13 +457,6 @@
                                     <outlet property="delegate" destination="svb-Ag-BAj" id="VQS-2k-CqA"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwX-lk-yy5">
-                                <rect key="frame" x="107" y="146" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -774,6 +780,8 @@
     <resources>
         <image name="close" width="50" height="50"/>
         <image name="light" width="517" height="517"/>
+        <image name="progbar_empty" width="446" height="20"/>
+        <image name="progbar_filling" width="446" height="20"/>
         <image name="torchBttn_on" width="174" height="174"/>
     </resources>
 </document>

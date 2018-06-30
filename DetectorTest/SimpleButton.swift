@@ -39,7 +39,7 @@ class SimpleButton: UIButton {
     
     // чтоб бокс кнопки не выходил за пределы ее видимых полей
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        // лежить ли point внутри path окружности кнопки
+        // лежит ли point внутри path окружности кнопки
         if let path = path{
             return path.contains(point)
         }
