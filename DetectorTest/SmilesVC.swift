@@ -19,7 +19,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var shine: UIImageView!
-    @IBOutlet weak var progressBar: UIProgressView! // стандартный прогрессбар
     public var progress:ProgressBar!                // кастомный прогрессбар
     
     let pickerNumbers = [Int](1...60)
@@ -72,7 +71,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                 countDownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
                 progress.startAnimate(_delay)
                 UIApplication.shared.isIdleTimerDisabled = true
-                progressBar.isHidden = false
                 progress.isHidden = false
             }
             else if newValue == STOP{
@@ -82,7 +80,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                 delay = _delay
                 timerTF.text = String(delay)
                 UIApplication.shared.isIdleTimerDisabled = false
-                progressBar.isHidden = true
                 progress.isHidden = true
             }
         }
@@ -119,7 +116,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         picker.selectRow(delay - 1, inComponent: 0, animated: true)
 
         torchState = nowLighting // для установки вида кнопки, т.к. изначально это включенная кнопка
-        progressBar.isHidden = true
         progress.isHidden = true
         
        
@@ -225,7 +221,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
                     timerState = STOP
                 }
                 shine.alpha = 0.1
-                progressBar.progress = 1
 //                progress.setProgress = 1
             }
             userDefaults.set(newValue, forKey: "light")
@@ -267,14 +262,12 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         print(delay)
         
         //прогресс бар
-        let progressCount = Float(delay)/Float(_delay)
-        progressBar.setProgress(Float(progressCount), animated: true)
-        
-//        progress.setProgress = Float(progressCount)
+        // let progressCount = Float(delay)/Float(_delay)
+        // progressBar.setProgress(Float(progressCount), animated: true)
         
         switch delay {
-//        case 0...9:
-//            timerTF.text = String(delay)
+        // case 0...9:
+        // timerTF.text = String(delay)
         case 0:
             onTorchClick(self)
         default:
@@ -295,8 +288,6 @@ class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         if nowLighting{
             onTorchClick(self)
         }
-        progressBar.progress = 1
-//        progress.setProgress = 1
     }
 
     
