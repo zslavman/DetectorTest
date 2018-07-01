@@ -17,10 +17,12 @@ class CustomProgBar: UIViewController {
             percents_TF.font = UIFont.monospacedDigitSystemFont(ofSize: percents_TF!.font!.pointSize, weight: UIFontWeightRegular)
         }
     }
+    @IBOutlet weak var segmentedControl: UISegmentedControl! // элемент сегментконтрол
+    @IBOutlet weak var descript_TF: UILabel!            // Скосрость загрузки 10 Мб
+    @IBOutlet weak var startBttn: UIButton!             // кн. Старт (для изменения ее надписи)
     
-    
+
     private var progress_filling:UIImageView!           // картинка заполнения бэкграунда прогрессбара
-    
     private var shapeMask:CAShapeLayer = CAShapeLayer() // маска
     private var maskWidth:CGFloat = 10                  // ширина прелоадера
     private var lineWidth:CGFloat = 10                  // толщина (жирность) линии, которая будет рисовать маску прогрессбара
@@ -32,12 +34,26 @@ class CustomProgBar: UIViewController {
             return Float(shapeMask.strokeEnd)
         }
         set {
+            if newValue == 0 {
+                shapeMask.actions = ["strokeEnd" : NSNull()] // для мгновенного сброса шкалы (иначе она сбрасывается инерционно)
+            }
+            else {
+               shapeMask.actions = nil
+            }
             shapeMask.strokeEnd = CGFloat(newValue)
             percents_TF.text = "\(Int(newValue * 100)) %"
         }
     }
+    private let segmentCases:[Int:Double] = [ // скорости таймера в зависимости от выбранной скороста на сегментконтроле
+        0: 0.7,  // GPRS
+        1: 0.15, // 3G
+        2: 0.02  // LTE
+    ]
+    private var timerSpeed:Double = 1
     
-    
+    private var LANG:Int = MainVC.LANG
+    private let dict = Dictionary().dict
+    private var running:Bool = false
     
     
     
@@ -45,16 +61,27 @@ class CustomProgBar: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        percents_TF.adjustsFontSizeToFitWidth = false
+        timerSpeed = segmentCases[segmentedControl.selectedSegmentIndex]!
         
+        startBttn.setTitle(dict[16]![LANG], for: .normal) // Старт
+        descript_TF.text = dict[19]![LANG]  // Скорость загрузки 10 Мб
+        title = dict[20]![LANG]             // Кастом прогрессбар
+        
+        // создаем и размещаем картинку заполнения кодом
         progress_filling = UIImageView(image: UIImage(named: "progbar_filling"))
         progress_filling.contentMode = .scaleAspectFit
         progress_filling.bounds = progress_backing.bounds
         progress_filling.frame.origin = CGPoint(x: 0, y: 0)
         
         progress_backing.addSubview(progress_filling)
-
-        title = "Кастом прогрессбар"
+        
+        // настройки кнопки Старт
+        startBttn.layer.shadowOffset = CGSize(width: 2, height: 3)
+        startBttn.layer.shadowRadius = 4
+        startBttn.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        startBttn.layer.shadowOpacity = 0.6
+        
+        
         lineWidth = progress_backing.frame.height
         maskWidth = progress_backing.frame.width
 
@@ -95,14 +122,38 @@ class CustomProgBar: UIViewController {
     
     
     
+    
+    
+    @IBAction func onSegmentedCtrlClick(_ sender: UISegmentedControl) {
+        
+        timerSpeed = segmentCases[sender.selectedSegmentIndex]!
+        
+        if running {
+            resetTimer(false)
+            timer = Timer.scheduledTimer(timeInterval: timerSpeed, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+        }
+    }
+    
 
     
 
 
     @IBAction func onStartClick(_ sender: Any) {
         
-        resetTimer()
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+        resetTimer(false)
+        if running {
+            running = false
+            startBttn.setTitle(dict[16]![LANG], for: .normal) // Старт
+        }
+        else{
+            if progress >= 1 {
+                resetTimer()
+            }
+            timer = Timer.scheduledTimer(timeInterval: timerSpeed, target: self, selector: #selector(timerFunc), userInfo: nil, repeats: true)
+            running = true
+            startBttn.setTitle(dict[17]![LANG], for: .normal) // Стоп
+        }
+            
     }
     
     
@@ -111,12 +162,15 @@ class CustomProgBar: UIViewController {
       
         progress += 0.01
         if (progress >= 1) {
-//            onStartClick(self)
-            timer.invalidate()
+            resetTimer(false)
+            running = false
+            startBttn.setTitle(dict[16]![LANG], for: .normal) // Старт
         }
     }
     
  
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -126,11 +180,15 @@ class CustomProgBar: UIViewController {
     
     
     
-    private func resetTimer(){
+    
+    
+    private func resetTimer(_ fullReset:Bool = true){
         if (timer != nil) {
             timer.invalidate()
-            timer = nil
-            progress = 0
+            if fullReset {
+                timer = nil
+                progress = 0
+            }
         }
     }
     

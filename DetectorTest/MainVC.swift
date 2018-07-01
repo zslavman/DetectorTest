@@ -34,7 +34,7 @@ class MainVC: UIViewController {
     
     let userDefaults = UserDefaults.standard
     //  LANG = 1 // 0 - RU, 1 - EN, 2 - ES
-    var LANG = 0
+    public static var LANG = 0
     var buttonsArr = [UIButton]() // массив всех кнопок
     let dict = Dictionary().dict
     
@@ -54,7 +54,7 @@ class MainVC: UIViewController {
         
  
         // если первый запуск, то получим значение 0
-        LANG = userDefaults.integer(forKey: "lang")
+        MainVC.LANG = userDefaults.integer(forKey: "lang")
         
         buttonsArr = [bttn1, bttn2, bttn3, bttn4]
 //        for i in 0..<buttonsArr.count{
@@ -98,19 +98,19 @@ class MainVC: UIViewController {
     @IBAction func onLangClick(_ sender: Any) {
         
         if sender is UIButton{
-            LANG += 1
-            if LANG == dict[0]!.count{
-                LANG = 0
+            MainVC.LANG += 1
+            if MainVC.LANG == dict[0]!.count{
+                MainVC.LANG = 0
             }
-            saveData(LANG)
+            saveData(MainVC.LANG)
         }
         
         for i in 0..<buttonsArr.count{
-            buttonsArr[i].setTitle(dict[i]![LANG], for: .normal)
+            buttonsArr[i].setTitle(dict[i]![MainVC.LANG], for: .normal)
         }
-        bttn5.setTitle(dict[15]![LANG], for: .normal)
-        langBttn.setTitle(dict[100]![LANG], for: .normal)
-        title = dict[7]![LANG]
+        bttn5.setTitle(dict[15]![MainVC.LANG], for: .normal)
+        langBttn.setTitle(dict[100]![MainVC.LANG], for: .normal)
+        title = dict[7]![MainVC.LANG]
     }
 
     
@@ -155,16 +155,16 @@ class MainVC: UIViewController {
             switch si {
             case "friendsSegue":
                 let destinationVC = segue.destination as! FriendsVC
-                destinationVC.LANG = LANG
+                destinationVC.LANG = MainVC.LANG
             case "smilesSegue":
                 let destinationVC = segue.destination as! SmilesVC
-                destinationVC.LANG = LANG
+                destinationVC.LANG = MainVC.LANG
 //            case "natureSegue":
 //                let destinationVC = segue.destination as! NatureVC
-//                destinationVC.LANG = LANG
+//                destinationVC.LANG = MainVC.LANG
             case "otherSegue":
                 let destinationVC = segue.destination as! OtherVC
-                destinationVC.LANG = LANG
+                destinationVC.LANG = MainVC.LANG
             default:
                 assertionFailure("Did't recognize storyboard identifier")
             }

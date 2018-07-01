@@ -31,7 +31,15 @@ class Dictionary {
         13:["Свет ВКЛ", "Light turned ON", "Luz encendida"],
         14:["Свет ВЫКЛ", "Light turned OFF", "Luz apagada"],
         15:["Кастомный progbarr", "Custom progbarr", "Barra de progreso"],
-        16:["", "", ""]
+        16:["Старт", "Start", "Empezar!"],
+        17:["Стоп", "Stop", "Parar!"],
+        18:["Сброс", "Reset", "Reiniciar"],
+        19:["Скорость загрузки 10 Мб", "Download speed for 10 Mb", "Velocidad de descarga 10 Mb"],
+        20:["Кастом прогрессбар", "Custom progbar", "Progbar personalizado"],
+        21:["", "", ""],
+        22:["", "", ""],
+        23:["", "", ""],
+        24:["", "", ""]
         
         ] as [Int:Array<String>]
 
