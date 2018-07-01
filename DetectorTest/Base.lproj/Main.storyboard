@@ -188,13 +188,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progbar_empty" translatesAutoresizingMaskIntoConstraints="NO" id="U7u-8y-lBY">
-                                <rect key="frame" x="40" y="188" width="240" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="HiS-iQ-0v2"/>
-                                    <constraint firstAttribute="width" secondItem="U7u-8y-lBY" secondAttribute="height" multiplier="240:17" id="cup-DG-48z"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUP-1R-w9Y">
                                 <rect key="frame" x="129" y="164" width="62" height="23"/>
                                 <constraints>
@@ -204,22 +197,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en3-8A-Jts">
-                                <rect key="frame" x="90" y="398" width="140" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="tel-E1-3Dx"/>
-                                    <constraint firstAttribute="height" constant="45" id="ulg-gi-0FI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
-                                <state key="normal" title="Старт" backgroundImage="start_bttn_off">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="start_bttn_on"/>
-                                <state key="focused" backgroundImage="start_bttn_on"/>
-                                <connections>
-                                    <action selector="onStartClick:" destination="YZP-Uk-4rO" eventType="touchUpInside" id="NAn-df-OWJ"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-8s-luO">
                                 <rect key="frame" x="38.5" y="302" width="243" height="29"/>
                                 <constraints>
@@ -237,25 +214,49 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скорость загрузки 10 Мб" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Wby-qx-UNb">
-                                <rect key="frame" x="59.5" y="273" width="202.5" height="21"/>
+                                <rect key="frame" x="58.5" y="273" width="203" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progbar_empty" translatesAutoresizingMaskIntoConstraints="NO" id="U7u-8y-lBY">
+                                <rect key="frame" x="40" y="187" width="240" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U7u-8y-lBY" secondAttribute="height" multiplier="240:31" id="dPc-3g-w0Q"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en3-8A-Jts">
+                                <rect key="frame" x="90" y="398" width="140" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="tel-E1-3Dx"/>
+                                    <constraint firstAttribute="height" constant="45" id="ulg-gi-0FI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <state key="normal" title="Старт" backgroundImage="start_bttn_off">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="start_bttn_on"/>
+                                <state key="focused" backgroundImage="start_bttn_on"/>
+                                <connections>
+                                    <action selector="onStartClick:" destination="YZP-Uk-4rO" eventType="touchUpInside" id="NAn-df-OWJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="U7u-8y-lBY" firstAttribute="centerX" secondItem="2hw-t0-fh9" secondAttribute="centerX" id="0kZ-ku-mkC"/>
                             <constraint firstItem="DUP-1R-w9Y" firstAttribute="centerX" secondItem="2hw-t0-fh9" secondAttribute="centerX" id="2mg-aO-R1h"/>
                             <constraint firstItem="1Qf-4q-kPj" firstAttribute="top" secondItem="Uac-8s-luO" secondAttribute="bottom" constant="238" id="2tU-4N-6fO"/>
-                            <constraint firstItem="U7u-8y-lBY" firstAttribute="top" secondItem="XJd-9A-Eac" secondAttribute="bottom" constant="124" id="Hqr-JX-ekh"/>
+                            <constraint firstItem="U7u-8y-lBY" firstAttribute="top" secondItem="XJd-9A-Eac" secondAttribute="bottom" constant="123" id="Hqr-JX-ekh"/>
                             <constraint firstItem="Uac-8s-luO" firstAttribute="top" secondItem="XJd-9A-Eac" secondAttribute="bottom" constant="46" id="LQL-MV-YOk"/>
-                            <constraint firstItem="1Qf-4q-kPj" firstAttribute="top" secondItem="en3-8A-Jts" secondAttribute="bottom" constant="47" id="Owj-An-rsv"/>
+                            <constraint firstItem="1Qf-4q-kPj" firstAttribute="top" secondItem="en3-8A-Jts" secondAttribute="bottom" constant="20" id="Owj-An-rsv"/>
                             <constraint firstItem="Wby-qx-UNb" firstAttribute="centerX" secondItem="2hw-t0-fh9" secondAttribute="centerX" id="Qjy-nC-qlE"/>
                             <constraint firstItem="en3-8A-Jts" firstAttribute="centerX" secondItem="2hw-t0-fh9" secondAttribute="centerX" id="WAE-K7-ZJD"/>
                             <constraint firstItem="Uac-8s-luO" firstAttribute="centerX" secondItem="2hw-t0-fh9" secondAttribute="centerX" id="eTI-sf-oem"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U7u-8y-lBY" secondAttribute="trailing" constant="24" id="gYP-YH-BNe"/>
                             <constraint firstItem="Uac-8s-luO" firstAttribute="top" secondItem="Wby-qx-UNb" secondAttribute="bottom" constant="8" id="iWr-ea-iVl"/>
-                            <constraint firstItem="U7u-8y-lBY" firstAttribute="top" secondItem="DUP-1R-w9Y" secondAttribute="bottom" constant="1" id="wkg-uG-EP4"/>
+                            <constraint firstItem="U7u-8y-lBY" firstAttribute="leading" secondItem="2hw-t0-fh9" secondAttribute="leadingMargin" constant="24" id="pbc-CD-xa6"/>
+                            <constraint firstItem="U7u-8y-lBY" firstAttribute="top" secondItem="DUP-1R-w9Y" secondAttribute="bottom" id="wkg-uG-EP4"/>
                             <constraint firstItem="1Qf-4q-kPj" firstAttribute="top" secondItem="en3-8A-Jts" secondAttribute="bottom" constant="125" id="yBy-rU-XWb"/>
                         </constraints>
                         <variation key="default">
@@ -266,7 +267,7 @@
                                 <exclude reference="yBy-rU-XWb"/>
                             </mask>
                         </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
+                        <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="LQL-MV-YOk"/>
                                 <include reference="Owj-An-rsv"/>
@@ -448,7 +449,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-Gt-pA8">
-                                <rect key="frame" x="24" y="359" width="273" height="48"/>
+                                <rect key="frame" x="23.5" y="359" width="273" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
                                         <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
@@ -638,7 +639,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TLR-kb-NE5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="567.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TLR-kb-NE5" secondAttribute="height" multiplier="40:71" id="zj5-Db-v8w"/>
                                 </constraints>

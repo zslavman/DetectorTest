@@ -23,10 +23,11 @@ class CustomProgBar: UIViewController {
     
 
     private var progress_filling:UIImageView!           // картинка заполнения бэкграунда прогрессбара
-    private var shapeMask:CAShapeLayer = CAShapeLayer() // маска
+    private var shapeMask:CAShapeLayer!                 // маска
     private var maskWidth:CGFloat = 10                  // ширина прелоадера
     private var lineWidth:CGFloat = 10                  // толщина (жирность) линии, которая будет рисовать маску прогрессбара
     private var timer:Timer!
+    private var path:UIBezierPath!
     
     // геттер/сеттер для шкалы прогресса
     public var progress:Float {
@@ -93,23 +94,33 @@ class CustomProgBar: UIViewController {
     
     
     
-    
+    // создание и наложение маски
     private func createAndApplyMask(){
-       
-        shapeMask.lineWidth = CGFloat(lineWidth - 3)
-        shapeMask.lineCap = "butt" // прямоугольные очертания
-        shapeMask.fillColor = nil  // не делать автозаливку открытых path
-        shapeMask.strokeStart = 0  // начальная точка отрисовку траэктории
-        shapeMask.strokeEnd = 1    // последняя точка отрисовку траэктории (1 - 100% линии нарисовано)
-        shapeMask.strokeColor = #colorLiteral(red: 0.2953388691, green: 0.8497148156, blue: 0.3902329504, alpha: 1).cgColor
-        shapeMask.opacity = 0.7
         
-        progress_backing.layer.addSublayer(shapeMask)
+        if shapeMask == nil {
+            shapeMask = CAShapeLayer()
+            
+            shapeMask.lineWidth = CGFloat(lineWidth - 3)
+            shapeMask.lineCap = "butt" // прямоугольные очертания
+            shapeMask.fillColor = nil  // не делать автозаливку открытых path
+            shapeMask.strokeStart = 0  // начальная точка отрисовку траэктории
+            shapeMask.strokeEnd = 1    // последняя точка отрисовку траэктории (1 - 100% линии нарисовано)
+            shapeMask.strokeColor = #colorLiteral(red: 0.2953388691, green: 0.8497148156, blue: 0.3902329504, alpha: 1).cgColor
+            shapeMask.opacity = 0.7
+            
+            progress_backing.layer.addSublayer(shapeMask)
+        }
         
         // рисование path маски
         shapeMask.frame = progress_backing.layer.bounds
         
-        let path = UIBezierPath()
+        if path != nil {
+            // path.removeAllPoints()
+            // view.setNeedsDisplay()
+            path = nil
+        }
+        
+        path = UIBezierPath()
         path.move(to: CGPoint(x: 0, y: lineWidth/2))            // начальная точка прямой
         path.addLine(to: CGPoint(x: maskWidth, y: lineWidth/2)) // конечная точка прямой
         shapeMask.path = path.cgPath
@@ -118,12 +129,25 @@ class CustomProgBar: UIViewController {
     }
 
     
+
+    
+    // при повороте экрана
+    override func viewDidLayoutSubviews() {
+        
+        // пересчитываем заполняющую полосу и маску
+        lineWidth = progress_backing.frame.height
+        maskWidth = progress_backing.frame.width
+        progress_filling.bounds = progress_backing.bounds
+        
+        createAndApplyMask()
+        
+        progress_filling.frame.origin = CGPoint(x: 0, y: 0)
+    }
     
     
     
     
-    
-    
+    // клик по сегментконтрол
     @IBAction func onSegmentedCtrlClick(_ sender: UISegmentedControl) {
         
         timerSpeed = segmentCases[sender.selectedSegmentIndex]!
@@ -137,7 +161,7 @@ class CustomProgBar: UIViewController {
 
     
 
-
+    // клик по кн. Старт/Стоп
     @IBAction func onStartClick(_ sender: Any) {
         
         resetTimer(false)
@@ -158,6 +182,7 @@ class CustomProgBar: UIViewController {
     
     
     
+    // таймер
     public func timerFunc(){
       
         progress += 0.01
@@ -170,8 +195,22 @@ class CustomProgBar: UIViewController {
     
  
     
+    // сброс таймера
+    private func resetTimer(_ fullReset:Bool = true){
+        
+        if (timer != nil) {
+            timer.invalidate()
+            if fullReset {
+                timer = nil
+                progress = 0
+            }
+        }
+    }
+    
+
     
     
+    // диспоз
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -181,16 +220,6 @@ class CustomProgBar: UIViewController {
     
     
     
-    
-    private func resetTimer(_ fullReset:Bool = true){
-        if (timer != nil) {
-            timer.invalidate()
-            if fullReset {
-                timer = nil
-                progress = 0
-            }
-        }
-    }
     
 
 }
