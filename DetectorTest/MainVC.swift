@@ -157,7 +157,7 @@ class MainVC: UIViewController {
                 let destinationVC = segue.destination as! FriendsVC
                 destinationVC.LANG = MainVC.LANG
             case "smilesSegue":
-                let destinationVC = segue.destination as! SmilesVC
+                let destinationVC = segue.destination as! Flashlight
                 destinationVC.LANG = MainVC.LANG
 //            case "natureSegue":
 //                let destinationVC = segue.destination as! NatureVC

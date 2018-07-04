@@ -435,10 +435,10 @@
             </objects>
             <point key="canvasLocation" x="1020" y="-694.0140845070423"/>
         </scene>
-        <!--SmilesVC-->
+        <!--Flashlight-->
         <scene sceneID="GwO-JH-t3r">
             <objects>
-                <viewController id="svb-Ag-BAj" customClass="SmilesVC" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="svb-Ag-BAj" customClass="Flashlight" customModule="DetectorTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ziw-MX-CEy"/>
                         <viewControllerLayoutGuide type="bottom" id="p8l-t5-cyx"/>
@@ -595,26 +595,26 @@
                                 <exclude reference="4jo-Gt-pA8"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="BjH-Bq-2Ce"/>
+                                <exclude reference="ezz-D0-WB1"/>
+                                <exclude reference="hgS-5q-7cR"/>
+                                <exclude reference="z4T-Sz-64c"/>
                                 <exclude reference="3Yf-6K-yG6"/>
                                 <exclude reference="JVz-29-25K"/>
                                 <exclude reference="e25-k1-hDk"/>
                                 <exclude reference="fcK-sw-Ui0"/>
                                 <exclude reference="kIK-Vl-Qau"/>
                                 <exclude reference="wO0-08-3eu"/>
-                                <exclude reference="hgS-5q-7cR"/>
-                                <exclude reference="z4T-Sz-64c"/>
-                                <exclude reference="BjH-Bq-2Ce"/>
-                                <exclude reference="ezz-D0-WB1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="BjH-Bq-2Ce"/>
+                                <include reference="ezz-D0-WB1"/>
+                                <include reference="hgS-5q-7cR"/>
                                 <include reference="3Yf-6K-yG6"/>
                                 <include reference="kIK-Vl-Qau"/>
                                 <include reference="wO0-08-3eu"/>
-                                <include reference="hgS-5q-7cR"/>
-                                <include reference="BjH-Bq-2Ce"/>
-                                <include reference="ezz-D0-WB1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -622,11 +622,11 @@
                                 <include reference="4jo-Gt-pA8"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="D4i-a8-qSj"/>
+                                <include reference="z4T-Sz-64c"/>
                                 <include reference="JVz-29-25K"/>
                                 <include reference="e25-k1-hDk"/>
                                 <include reference="fcK-sw-Ui0"/>
-                                <include reference="z4T-Sz-64c"/>
-                                <include reference="D4i-a8-qSj"/>
                             </mask>
                         </variation>
                     </view>

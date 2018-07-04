@@ -1,5 +1,5 @@
 //
-//  SmilesVC.swift
+//  Flashlight.swift
 //  DetectorTest
 //
 //  Created by Admin on 03.02.18.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class SmilesVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class Flashlight: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     @IBOutlet weak var backBttn: UIButton!
