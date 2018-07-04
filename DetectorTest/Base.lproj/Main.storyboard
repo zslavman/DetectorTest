@@ -225,7 +225,7 @@
                                     <action selector="onStartClick:" destination="YZP-Uk-4rO" eventType="touchUpInside" id="NAn-df-OWJ"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-8s-luO">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-8s-luO">
                                 <rect key="frame" x="39" y="302" width="243" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="Kxp-0h-32v"/>
@@ -508,7 +508,7 @@
                                 </connections>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4jo-Gt-pA8">
-                                <rect key="frame" x="23.5" y="352" width="273" height="48"/>
+                                <rect key="frame" x="23.5" y="359" width="273" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNs-G8-HgS">
                                         <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
@@ -566,13 +566,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96470588235294119" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="4jo-Gt-pA8" secondAttribute="bottom" constant="168" id="2tc-dV-afb"/>
                             <constraint firstItem="78D-dR-lIk" firstAttribute="trailing" secondItem="vH9-VZ-FWh" secondAttribute="trailing" constant="-21" id="3OD-Qd-KdM"/>
                             <constraint firstItem="I6W-fQ-Vbb" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leading" id="3Yf-6K-yG6"/>
                             <constraint firstItem="78D-dR-lIk" firstAttribute="top" secondItem="4jo-Gt-pA8" secondAttribute="bottom" constant="21" id="BjH-Bq-2Ce"/>
                             <constraint firstItem="Nuk-1f-6vu" firstAttribute="leading" secondItem="vH9-VZ-FWh" secondAttribute="leading" constant="23" id="D4i-a8-qSj"/>
                             <constraint firstItem="p8l-t5-cyx" firstAttribute="top" secondItem="Nuk-1f-6vu" secondAttribute="bottom" constant="20" id="Gy7-Bw-kgH"/>
                             <constraint firstItem="I6W-fQ-Vbb" firstAttribute="centerX" secondItem="vH9-VZ-FWh" secondAttribute="centerX" id="JVz-29-25K"/>
+                            <constraint firstItem="Nuk-1f-6vu" firstAttribute="top" secondItem="4jo-Gt-pA8" secondAttribute="bottom" constant="8" id="Tam-HC-9fV"/>
                             <constraint firstItem="I6W-fQ-Vbb" firstAttribute="width" secondItem="vH9-VZ-FWh" secondAttribute="width" constant="-54" id="e25-k1-hDk"/>
                             <constraint firstItem="78D-dR-lIk" firstAttribute="leading" secondItem="Nuk-1f-6vu" secondAttribute="trailing" constant="114" id="ezz-D0-WB1"/>
                             <constraint firstItem="I6W-fQ-Vbb" firstAttribute="top" secondItem="ziw-MX-CEy" secondAttribute="bottom" id="fcK-sw-Ui0"/>
@@ -595,26 +595,26 @@
                                 <exclude reference="4jo-Gt-pA8"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="BjH-Bq-2Ce"/>
-                                <exclude reference="ezz-D0-WB1"/>
-                                <exclude reference="hgS-5q-7cR"/>
-                                <exclude reference="z4T-Sz-64c"/>
                                 <exclude reference="3Yf-6K-yG6"/>
                                 <exclude reference="JVz-29-25K"/>
                                 <exclude reference="e25-k1-hDk"/>
                                 <exclude reference="fcK-sw-Ui0"/>
                                 <exclude reference="kIK-Vl-Qau"/>
                                 <exclude reference="wO0-08-3eu"/>
+                                <exclude reference="hgS-5q-7cR"/>
+                                <exclude reference="z4T-Sz-64c"/>
+                                <exclude reference="BjH-Bq-2Ce"/>
+                                <exclude reference="ezz-D0-WB1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <include reference="BjH-Bq-2Ce"/>
-                                <include reference="ezz-D0-WB1"/>
-                                <include reference="hgS-5q-7cR"/>
                                 <include reference="3Yf-6K-yG6"/>
                                 <include reference="kIK-Vl-Qau"/>
                                 <include reference="wO0-08-3eu"/>
+                                <include reference="hgS-5q-7cR"/>
+                                <include reference="BjH-Bq-2Ce"/>
+                                <include reference="ezz-D0-WB1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -622,11 +622,11 @@
                                 <include reference="4jo-Gt-pA8"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="D4i-a8-qSj"/>
-                                <include reference="z4T-Sz-64c"/>
                                 <include reference="JVz-29-25K"/>
                                 <include reference="e25-k1-hDk"/>
                                 <include reference="fcK-sw-Ui0"/>
+                                <include reference="z4T-Sz-64c"/>
+                                <include reference="D4i-a8-qSj"/>
                             </mask>
                         </variation>
                     </view>
