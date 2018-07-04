@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560694A720ED78C200EB5B0A /* TexturedProgBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560694A620ED78C200EB5B0A /* TexturedProgBar.swift */; };
 		561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561ABFDF208FCF5200CAC544 /* ImageLoader.swift */; };
 		56252DB420D5834000AA458B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56252DB320D5834000AA458B /* ProgressBar.swift */; };
 		564454CF2098CB4800036F63 /* OtherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564454CE2098CB4800036F63 /* OtherVC.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		560694A620ED78C200EB5B0A /* TexturedProgBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TexturedProgBar.swift; sourceTree = "<group>"; };
 		561ABFDF208FCF5200CAC544 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		56252DB320D5834000AA458B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		564454CE2098CB4800036F63 /* OtherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherVC.swift; sourceTree = "<group>"; };
@@ -65,6 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560694A520ED785300EB5B0A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				560694A620ED78C200EB5B0A /* TexturedProgBar.swift */,
+				56252DB320D5834000AA458B /* ProgressBar.swift */,
+				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
+				56F1BF4520D6E69500E7D2FB /* SimpleButton.swift */,
+				56EE12EE2079527C00B6E537 /* GradientView.swift */,
+				564454D02098D31A00036F63 /* GradientCollectionView.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		84BCD32E2025CBAE00BDD195 = {
 			isa = PBXGroup;
 			children = (
@@ -89,13 +104,9 @@
 				84BCD33A2025CBAE00BDD195 /* AppDelegate.swift */,
 				84BCD34F2025FADA00BDD195 /* Dictionary.swift */,
 				84BCD33C2025CBAE00BDD195 /* MainVC.swift */,
-				84BCD359202613D000BDD195 /* Group */,
+				84BCD359202613D000BDD195 /* Core */,
 				84E6DFAD2041EA0C0014A90E /* Presentation mode */,
-				561ABFDF208FCF5200CAC544 /* ImageLoader.swift */,
-				56F1BF4520D6E69500E7D2FB /* SimpleButton.swift */,
-				56EE12EE2079527C00B6E537 /* GradientView.swift */,
-				56252DB320D5834000AA458B /* ProgressBar.swift */,
-				564454D02098D31A00036F63 /* GradientCollectionView.swift */,
+				560694A520ED785300EB5B0A /* Utils */,
 				84BCD3442025CBAE00BDD195 /* Assets.xcassets */,
 				84E7D1C5202E6C5A00D1B62F /* Storage.xcdatamodeld */,
 				84BCD3492025CBAE00BDD195 /* Info.plist */,
@@ -104,17 +115,17 @@
 			path = DetectorTest;
 			sourceTree = "<group>";
 		};
-		84BCD359202613D000BDD195 /* Group */ = {
+		84BCD359202613D000BDD195 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				846F52AB202F8098000B681C /* FriendsVC.swift */,
 				84BCD3532026132900BDD195 /* Flashlight.swift */,
 				564454CE2098CB4800036F63 /* OtherVC.swift */,
-				56C2D36E20E19625002C8210 /* CustomProgBar.swift */,
 				56671DD9209925DB00A957BE /* OtherCell.swift */,
+				56C2D36E20E19625002C8210 /* CustomProgBar.swift */,
 				84BCD357202613B600BDD195 /* OtherDetailVC.swift */,
 			);
-			name = Group;
+			name = Core;
 			sourceTree = "<group>";
 		};
 		84E6DFAD2041EA0C0014A90E /* Presentation mode */ = {
@@ -213,6 +224,7 @@
 				561ABFE0208FCF5200CAC544 /* ImageLoader.swift in Sources */,
 				84BCD358202613B600BDD195 /* OtherDetailVC.swift in Sources */,
 				84BCD3562026136900BDD195 /* NatureVC.swift in Sources */,
+				560694A720ED78C200EB5B0A /* TexturedProgBar.swift in Sources */,
 				846F52AC202F8098000B681C /* FriendsVC.swift in Sources */,
 				84E6DFAF2041FB720014A90E /* PageVC.swift in Sources */,
 				84BCD3542026132900BDD195 /* Flashlight.swift in Sources */,
